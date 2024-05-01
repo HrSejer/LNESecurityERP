@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Casper s. jensen\source\repos\LNESecurityERP\ERPSys\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Casper s. jensen\source\repos\LNESecurityERP\ERPSys\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="TECHCOOL" Version="1.4.0" />
   </ItemGroup>
 
