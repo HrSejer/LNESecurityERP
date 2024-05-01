@@ -10,7 +10,7 @@ namespace ERPSys
     {
         public int KundeNummer { get; set; }
         public DateTime Dato { get; set; }
-        public Kunde(string navn, string fornavn, string efternavn, string addresse, int tlfnummer, string mail, int kundenummer, DateTime dato): base(navn, fornavn, efternavn, addresse, tlfnummer, mail) 
+        public Kunde(string navn, string fornavn, string efternavn, Addresse addresser, int tlfnummer, string mail, int kundenummer, DateTime dato): base(navn, fornavn, efternavn, addresser, tlfnummer, mail) 
         {
             KundeNummer = kundenummer;
             Dato = dato;

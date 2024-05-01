@@ -9,17 +9,17 @@ namespace ERPSys
 {
     public class Person
     {
+        public Addresse Addresser { get; set; }
         public string Navn { get; set; }
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
-        public string Addresse { get; set; }
         public int Tlfnummer { get; set; }
         public string Mail { get; set; }
 
-        public Person(string navn, string fornavn, string efternavn, string addresse, int tlfnummer, string mail) 
+        public Person(string navn, string fornavn, string efternavn, Addresse addresser, int tlfnummer, string mail) 
         {
             navn = Navn;
-            addresse = Addresse;
+            addresser = Addresser;
             tlfnummer = Tlfnummer;
             mail = Mail;
             fornavn = Fornavn;

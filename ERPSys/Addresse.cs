@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    internal class Addresse
+    public class Addresse
     {
-
+        public string Addresser { get; set; }
     }
 }
