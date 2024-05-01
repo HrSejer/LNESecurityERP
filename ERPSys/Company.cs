@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    internal class Company
+    //Class/constructor for the UI 
+    public class Company
     {
         public string CompanyName { get; set; } = "";
         public string Vej { get; set;}
@@ -16,6 +17,7 @@ namespace ERPSys
         public string By { get; set; }
         public string Land {  get; set; }
         public string Currency {  get; set; }
+        //this empty constructor is here only to stop the CS0310 ERRROR  
         public Company() { }
         public Company(string companyName, string vej, string husnummer, string postnummer, string by, string land, string currency)
         {
