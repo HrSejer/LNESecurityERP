@@ -53,7 +53,7 @@ namespace ERPSys
 
         public decimal BeregnAvanceProcent()
         {
-            return Salgsspris - Indkoebspris * 100;
+            return Salgsspris / Indkoebspris * 100;
         }
 
     }
