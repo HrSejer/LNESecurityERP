@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    internal class Person
+    public class Person
     {
         public string Navn { get; set; }
         public string Fornavn { get; set; }

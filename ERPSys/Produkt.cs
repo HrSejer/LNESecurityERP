@@ -24,9 +24,36 @@ namespace ERPSys
             beskrivelse = Beskrivelse;
             salgsspris = Salgsspris;
             indkoebspris = Indkoebspris;
-            lokation = Lokation;
+            lokation = ValidLokation(Lokation);
             antalpaalager = Antalpaalager;
-            enhed = Enhed;
+            enhed = ValidEnhed(Enhed);
+        }
+        private string ValidLokation(string lokation)
+        {
+            if (lokation.Length != 4 || !lokation.All(char.IsLetterOrDigit))
+            {
+                throw new ArgumentException("Lokation skal være 4 bogstaver/tal.");
+            }
+            return lokation;
+        }
+
+        private string ValidEnhed(string enhed)
+        {
+            string[] gyldigeEnheder = { "styk", "timer", "meter" };
+            if (!gyldigeEnheder.Contains(enhed.ToLower()))
+            {
+                throw new ArgumentException("Ugyldig enhed. De tilladte enheder er: styk, timer eller meter.");
+            }
+            return enhed;
+        }
+        public decimal BeregnFortjeneste()
+        {
+            return Salgsspris - Indkoebspris;
+        }
+
+        public decimal BeregnAvanceProcent()
+        {
+            return Salgsspris - Indkoebspris * 100;
         }
 
     }
