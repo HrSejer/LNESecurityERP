@@ -31,8 +31,6 @@ namespace ERPSys
         {
             do
             {
-                Clear(this);
-
                 ListPage<Company> companylist = new();
                 companylist.Add(new Company("Company", "Someroad","5","9303","city","companycountry", "DKK"));
                 companylist.Add(new Company("Company1", "Someroad", "5", "9303", "city", "companycountry1", "DKK1"));
@@ -43,7 +41,8 @@ namespace ERPSys
                 companylist.AddColumn("Country", "Land");
                 companylist.AddColumn("Currency", "Currency");
 
-                companylist.Draw();
+                
+                ExitOnEscape();
                 Company selected = companylist.Select();
                 if (selected != null)
                 {
@@ -75,6 +74,8 @@ namespace ERPSys
             selectedCompany.AddColumn("By", "By");
 
             selectedCompany.Draw();
+
+            ExitOnEscape();
         }
     }
 }
