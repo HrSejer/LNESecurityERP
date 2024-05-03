@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    internal class Produkt
+    public class Produkt
     {
         public int Varenummer { get; set; }
         public string Navn { get; set; }
@@ -27,6 +27,18 @@ namespace ERPSys
             lokation = ValidLokation(Lokation);
             antalpaalager = Antalpaalager;
             enhed = ValidEnhed(Enhed);
+        }
+
+        public Produkt() 
+        { 
+            Varenummer = 0;
+            Navn = string.Empty;
+            Beskrivelse = string.Empty;
+            Salgsspris = 0;
+            Indkoebspris = 0;
+            Lokation = string.Empty;
+            Antalpaalager = 0;
+            Enhed = string.Empty;
         }
         private string ValidLokation(string lokation)
         {
@@ -55,6 +67,8 @@ namespace ERPSys
         {
             return Salgsspris / Indkoebspris * 100;
         }
+
+
 
     }
 }

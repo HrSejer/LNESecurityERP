@@ -14,7 +14,7 @@ namespace ERPSys
         public int Kundenummer { get; set; }
         public string Tilstand { get; set; }
         
-        List<string> ordrelinjer = new List<string>();
+        List<string> Ordrelinjer = new List<string>();
         public int Ordrebeløb { get; set; }
 
         public Salgsordrehoved() 
