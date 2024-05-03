@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace ERPSys
 {
@@ -24,7 +25,7 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string sqlQuery = "SELECT * FROM Ordrenummer WHERE Ordrenummer = @Ordrenummer";
+                string sqlQuery = "SELECT * FROM Salgsordre WHERE Ordrenummer = @Ordrenummer";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
@@ -46,38 +47,41 @@ namespace ERPSys
             }
             return null;
         }
-        public void SalgordreAlle(Salgsordrehoved Salgsordre)
+        public static void SalgsordreAlle()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                string query = "SELECT * FROM Salgsordre";
+                string query = "SELECT Ordrenummer FROM Salgsordre";
+
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        DataTable dt = new DataTable();
-                        foreach (DataRow row in dt.Rows)
+                        while (reader.Read())
                         {
-                            int id = (int)row["ID"];
-                            string name = (string)row["Name"];
+                            int ordrenummer = reader.GetInt32(reader.GetOrdinal("ordrenummer"));
 
-                            Console.WriteLine($"ID: {id}, Name: {name}");
+                            Salgsordrehoved Salgsordre = new Salgsordrehoved
+                            {
+                                Ordrenummer = ordrenummer,
+                            };
+
+                            Console.WriteLine($"ID: {Salgsordre.Ordrenummer}");
                         }
                     }
                 }
             }
         }
-
-        public void indsaet(Salgsordrehoved Salgsordre)
+        public void indsaetSalgsordre(Salgsordrehoved Salgsordre)
         {
-            using (SqlConnection con = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                con.Open();
+                connection.Open();
 
-                string Query = "insert into Salgsordre values (@Ordrenummer)";
+                string Query = "INSERT INTO Salgsordre VALUES (@Ordrenummer)";
 
-                using (SqlCommand cmd = new SqlCommand(Query, con))
+                using (SqlCommand cmd = new SqlCommand(Query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
 
@@ -87,13 +91,13 @@ namespace ERPSys
         }
         public void OpdaterSalgsordre(Salgsordrehoved Salgsordre)
         {
-            using (SqlConnection con = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                con.Open();
+                connection.Open();
 
-                string query = "Update Salgsordre set where Ordrenummer=@Ordrenummer";
+                string query = "UPDATE Salgsordre SET Ordrenummer = @Ordrenummer";
 
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
 
@@ -104,13 +108,13 @@ namespace ERPSys
 
         public void SletSalgsordre(Salgsordrehoved Salgsordre)
         {
-            using (SqlConnection con = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                con.Open();
+                connection.Open();
 
-                string query = "Delete Salgsordre where Ordrenummer=@Ordrenummer";
+                string query = "DELETE FROM Salgsordre WHERE Ordrenummer = @Ordrenummer";
 
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@SalgsordreId", Salgsordre.Ordrenummer);
 
@@ -126,11 +130,11 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string sqlQuery = "SELECT * FROM Ordrenummer WHERE Ordrenummer = @Ordrenummer";
+                string sqlQuery = "SELECT * FROM Produkt WHERE Varenummer = @Varenummer";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@Ordrenummer", ProduktId);
+                    command.Parameters.AddWithValue("@Varenummer", ProduktId);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -147,6 +151,84 @@ namespace ERPSys
                 }
             }
             return null;
+        }
+
+        public static void ProduktAlle()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                string query = "SELECT Varenummer, Navn FROM Produkt";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int varenummer = reader.GetInt32(reader.GetOrdinal("Varenummer"));
+                            string navn = reader.GetString(reader.GetOrdinal("Name"));
+
+                            Produkt produkt = new Produkt
+                            {
+                                Varenummer = varenummer,
+                                Navn = navn
+                            };
+
+                            Console.WriteLine($"ID: {produkt.Varenummer}, Name: {produkt.Navn}");
+                        }
+                    }
+                }
+            }
+        }
+
+        public void indsaetProdukt(Produkt produkt)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                string Query = "INSERT INTO Produkt VALUES (@Varenummer)";
+
+                using (SqlCommand cmd = new SqlCommand(Query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void OpdaterProdukt(Produkt produkt)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                string query = "UPDATE Produkt SET Varenummer = @Varenummer";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public void SletProdukt(Produkt produkt)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                string query = "DELETE FROM Produkt WHERE Varenummer = @Varenummer";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
