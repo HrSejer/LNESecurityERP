@@ -28,7 +28,7 @@ namespace ERPSys
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
+                    command.Parameters.AddWithValue("@Ordrenummer", Salgsordre);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -120,28 +120,28 @@ namespace ERPSys
         }
 
         //Produkt
-        public Produkt ProduktId(Produkt produkter)
+        public Produkt ProduktId(Produkt ProduktId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
 
-                string sqlQuery = "SELECT * FROM Produkt WHERE Varenummer = @Varenummer";
+                string sqlQuery = "SELECT * FROM Ordrenummer WHERE Ordrenummer = @Ordrenummer";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@Varenummer", produkter.Varenummer);
+                    command.Parameters.AddWithValue("@Ordrenummer", ProduktId);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            Produkt produkt = new Produkt();
+                            Produkt produkt = new Produkt
                             {
-                                Varenummer = Convert.ToInt32(reader["Varenummer"]);
+                                Varenummer = Convert.ToInt32(reader["Ordrenummer"]),
                             };
 
-                            return produkt;
+                            return ProduktId;
                         }
                     }
                 }
