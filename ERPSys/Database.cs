@@ -10,7 +10,10 @@ namespace ERPSys
 {
     public class Database
     {
+        //Salgsordrehoved
+
         Salgsordrehoved Salgsordrehoved = new Salgsordrehoved();
+
         public Database() 
         {
             
@@ -116,5 +119,34 @@ namespace ERPSys
             }
         }
 
+        //Produkt
+        public Produkt ProduktId(Produkt produkter)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                string sqlQuery = "SELECT * FROM Produkt WHERE Varenummer = @Varenummer";
+
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Varenummer", produkter.Varenummer);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Produkt produkt = new Produkt();
+                            {
+                                Varenummer = Convert.ToInt32(reader["Varenummer"]);
+                            };
+
+                            return produkt;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
     }
 }
