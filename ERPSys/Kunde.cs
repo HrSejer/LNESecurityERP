@@ -14,6 +14,23 @@ namespace ERPSys
         {
             KundeNummer = kundenummer;
             Dato = dato;
+            Navn = navn;
+            Fornavn = fornavn;
+            Efternavn = efternavn;
+            Addresser = addresser;
+            Tlfnummer = tlfnummer;
+            Mail = mail;
+        }
+        public Kunde()
+        {
+            Navn = string.Empty;
+            Addresser = null;
+            Tlfnummer = 0;
+            Mail = string.Empty;
+            Fornavn = string.Empty;
+            Efternavn = string.Empty;
+            KundeNummer = 0;
+            Dato = DateTime.Now;
         }
     }
 }
