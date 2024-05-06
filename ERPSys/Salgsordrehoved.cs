@@ -17,9 +17,22 @@ namespace ERPSys
         List<string> Ordrelinjer = new List<string>();
         public int Ordrebeløb { get; set; }
 
-        public Salgsordrehoved() 
+        public Salgsordrehoved() { }
+        public Salgsordrehoved(int ordreNummer, int kundeNummer, string tilstand, int ordreBeløb) 
         {
-            
+            Ordrenummer = ordreNummer;
+            Kundenummer = kundeNummer;
+            Tilstand = tilstand;
+            Ordrebeløb = ordreBeløb;
+        }
+        private string ValidTilstand(string enhed)
+        {
+            string[] gyldigeEnheder = { "Ingen", "Oprettet", "Bekræftet", "Pakket", "Færdig" };
+            if (!gyldigeEnheder.Contains(enhed.ToLower()))
+            {
+                throw new ArgumentException("Ugyldig enhed. De tilladte tilstande er: Ingen, Oprettet, Bekræftet, Pakket eller Færdig .");
+            }
+            return enhed;
         }
     }
 }
