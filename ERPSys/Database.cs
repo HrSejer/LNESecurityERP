@@ -48,7 +48,7 @@ namespace ERPSys
             }
             return null;
         }
-        public static void SalgsordreAlle()
+        public void SalgsordreAlle()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -155,7 +155,7 @@ namespace ERPSys
             return null;
         }
 
-        public static void ProduktAlle()
+        public void ProduktAlle()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -262,7 +262,7 @@ namespace ERPSys
             }
             return null;
         }
-        public static void KundeAlle()
+        public void KundeAlle()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
