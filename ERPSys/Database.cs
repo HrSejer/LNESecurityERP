@@ -73,7 +73,7 @@ namespace ERPSys
                 }
             }
         }
-        public void indsaetSalgsordre(Salgsordrehoved Salgsordre)
+        public void IndsaetSalgsordre(Salgsordrehoved Salgsordre)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -182,7 +182,7 @@ namespace ERPSys
             }
         }
 
-        public void indsaetProdukt(Produkt produkt)
+        public void IndsaetProdukt(Produkt produkt)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {

@@ -78,4 +78,18 @@ namespace ERPSys
             ExitOnEscape();
         }
     }
+
+    public class SalgsordreLists : Screen
+    {
+        public override string Title { get; set; } = "Salgsordre list";
+        protected override void Draw()
+        {
+            do
+            {
+                ListPage<Salgsordrehoved> salgsordreList = new();
+                salgsordreList.Add(new Salgsordrehoved(1, 1, "Oprettet", 100));
+            }
+            while(Show);
+        }
+    }
 }
