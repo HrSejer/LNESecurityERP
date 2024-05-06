@@ -18,12 +18,12 @@ namespace ERPSys
 
         public Person(string navn, string fornavn, string efternavn, Addresse addresser, int tlfnummer, string mail) 
         {
-            navn = Navn;
-            addresser = Addresser;
-            tlfnummer = Tlfnummer;
-            mail = Mail;
-            fornavn = Fornavn;
-            efternavn = Efternavn;
+            Navn = navn;
+            Fornavn = fornavn;
+            Efternavn = efternavn;
+            Addresser = addresser;
+            Tlfnummer = tlfnummer;
+            Mail = mail;
         }
 
         public string Fullname()
