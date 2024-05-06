@@ -15,9 +15,9 @@ namespace ERPSys
             do
             {
                 ListPage<Company> companylist = new();
-                companylist.Add(new Company("Company", "Someroad", "5", "9303", "city", "companycountry", "DKK"));
-                companylist.Add(new Company("Company1", "Someroad", "5", "9303", "city", "companycountry1", "DKK1"));
-                companylist.Add(new Company("Company2", "Someroad", "5", "9303", "city", "companycountry2", "DKK2"));
+                companylist.Add(new Company("Company", "Someroad", "5", "9303", "city", "companycountry", Currency.Valuta.DKK));
+                companylist.Add(new Company("Company1", "Someroad", "5", "9303", "city", "companycountry1", Currency.Valuta.DKK));
+                companylist.Add(new Company("Company2", "Someroad", "5", "9303", "city", "companycountry2", Currency.Valuta.USD));
 
                 //used to tell it what data from the class it should use
                 companylist.AddColumn("Company Name", "CompanyName");

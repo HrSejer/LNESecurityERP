@@ -14,7 +14,7 @@ namespace ERPSys
         protected override void Draw()
         {
             Clear(this);
-
+            
             ListPage<Company> selectedCompany = new ListPage<Company>();
             selectedCompany.Add(company);
             selectedCompany.AddColumn("Company Name", "CompanyName");
@@ -24,7 +24,15 @@ namespace ERPSys
             selectedCompany.AddColumn("Postnummer", "Postnummer");
             selectedCompany.AddColumn("By", "By");
 
+            
+            
+            Menu menu = new Menu();
+            menu.Add(new EditCompany(company));
+
             selectedCompany.Draw();
+            menu.Draw();
+
+            menu.Start(this);
 
             ExitOnEscape();
         }

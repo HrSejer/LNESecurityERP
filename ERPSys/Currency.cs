@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    public class Cunrrency
+    public class Currency
     {
         //Currency enum
-        internal enum Currency
+        public enum Valuta
         {
             DKK, 
             SEK, 
             USD, 
-            EUR  
+            EURO  
         }
     }
 }

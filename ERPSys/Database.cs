@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-
+/*
 namespace ERPSys
 {
     public class Database
@@ -232,3 +232,4 @@ namespace ERPSys
         }
     }
 }
+*/
