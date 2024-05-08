@@ -9,11 +9,13 @@ namespace ERPSys
 {
     public class EditCompany(Company company) : Screen
     {
+        readonly CompanyData database = new();
         public override string Title { get; set; } = "Company Edit";
         protected override void Draw()
         {
             Clear(this);
-            
+
+            ExitOnEscape();
 
             Form<Company> editor = new Form<Company>();
             editor.TextBox("Company Name", "CompanyName");
@@ -26,27 +28,23 @@ namespace ERPSys
             editor.TextBox("Husnummer", "Husnummer");
             editor.TextBox("Postnummer", "Postnummer");
             editor.TextBox("By", "By");
-            
+
             if (editor.Edit(company))
             {
                 if (company.Id != 0)
                 {
-                    Console.WriteLine("auhnb");
+                    database.UpdateCompany(company);
                 }
                 else
                 {
-                    
+
                 }
-                
+
             }
             else
             {
-                
+
             }
-
-            ExitOnEscape();
-
-            Clear(this);
         }
     }
 }

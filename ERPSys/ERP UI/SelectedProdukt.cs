@@ -21,7 +21,7 @@ namespace ERPSys
             selectedProdukt.AddColumn("Beskrivelse", "Beskrivelse");
             selectedProdukt.AddColumn("Salgspris", "Salgspris");
             selectedProdukt.AddColumn("Indkoebspris", "Indkoebspris");
-            selectedProdukt.AddColumn("Lokation", "Indkoebspris");
+            selectedProdukt.AddColumn("Lokation", "Lokation");
             selectedProdukt.AddColumn("Lagerantal", "Antalpaalager");
             selectedProdukt.AddColumn("Enhed", "Enhed");
             selectedProdukt.AddColumn("Avance", "Avance");

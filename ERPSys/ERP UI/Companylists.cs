@@ -9,6 +9,7 @@ namespace ERPSys
 {
     public class Companylists : Screen
     {
+        CompanyData database = new();
         public override string Title { get; set; } = "Company List";
         protected override void Draw()
         {
@@ -16,15 +17,14 @@ namespace ERPSys
             {
                 ListPage<Company> companylist = new();
 
+                var companies = database.GetCompanies();
+                foreach (Company company in companies)
+                {                   
+                    companylist.Add(company);
+                }
+
                 companylist.AddKey(ConsoleKey.F2, editCompany);
                 Console.WriteLine("Tryk F2 for at redigere virksomhed");
-
-
-                //Temp data
-                companylist.Add(new Company(1,"Company", "Someroad", "5", "9303", "city", "companycountry", Currency.Valuta.DKK));
-                companylist.Add(new Company(2,"Company1", "Someroad", "5", "9303", "city", "companycountry1", Currency.Valuta.DKK));
-                companylist.Add(new Company(3,"Company2", "Someroad", "5", "9303", "city", "companycountry2", Currency.Valuta.USD));
-                //temp data
 
                 //used to tell it what data from the class it should use in the order of
                 //displaying name then the Code name
