@@ -26,8 +26,24 @@ namespace ERPSys
             editor.TextBox("Husnummer", "Husnummer");
             editor.TextBox("Postnummer", "Postnummer");
             editor.TextBox("By", "By");
-            editor.Edit(company);
             
+            if (editor.Edit(company))
+            {
+                if (company.Id != 0)
+                {
+                    Console.WriteLine("auhnb");
+                }
+                else
+                {
+                    
+                }
+                
+            }
+            else
+            {
+                
+            }
+
             ExitOnEscape();
 
             Clear(this);
