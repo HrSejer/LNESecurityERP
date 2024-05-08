@@ -28,7 +28,7 @@ namespace ERPSys
 
         public string Fullname()
         {
-            return $"{Fornavn}. {Efternavn}";
+            return $"{Fornavn} {Efternavn}";
         }
 
         public void DisplayInfo()
