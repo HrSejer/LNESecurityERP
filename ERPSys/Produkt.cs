@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +12,24 @@ namespace ERPSys
         public int Varenummer { get; set; }
         public string Navn { get; set; }
         public string Beskrivelse { get; set; }
-        public int Salgsspris { get; set; }
-        public int Indkoebspris { get; set; }
+        public decimal Salgspris { get; set; }
+        public decimal Indkoebspris { get; set; }
         public string Lokation { get; set; }
         public decimal Antalpaalager { get; set; }
         public string Enhed { get; set; }
+        public decimal Avance { get; set; }
 
-        public Produkt(int varenummer, string navn, string beskrivelse, int salgsspris, int indkoebspris, string lokation, decimal antalpaalager, string enhed)
+        public Produkt(int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, string enhed, decimal avance)
         {
             varenummer = Varenummer;
             navn = Navn;
             beskrivelse = Beskrivelse;
-            salgsspris = Salgsspris;
+            salgsspris = Salgspris;
             indkoebspris = Indkoebspris;
             lokation = ValidLokation(Lokation);
             antalpaalager = Antalpaalager;
             enhed = ValidEnhed(Enhed);
+            Avance = avance;
         }
 
         public Produkt() 
@@ -34,14 +37,17 @@ namespace ERPSys
             Varenummer = 0;
             Navn = string.Empty;
             Beskrivelse = string.Empty;
-            Salgsspris = 0;
+            Salgspris = 0;
             Indkoebspris = 0;
             Lokation = string.Empty;
             Antalpaalager = 0;
             Enhed = string.Empty;
+            Avance = 0;
         }
         private string ValidLokation(string lokation)
         {
+            lokation = "aaa2";
+
             if (lokation.Length != 4 || !lokation.All(char.IsLetterOrDigit))
             {
                 throw new ArgumentException("Lokation skal være 4 bogstaver/tal.");
@@ -51,6 +57,8 @@ namespace ERPSys
 
         private string ValidEnhed(string enhed)
         {
+            enhed = "styk";
+
             string[] gyldigeEnheder = { "styk", "timer", "meter" };
             if (!gyldigeEnheder.Contains(enhed.ToLower()))
             {
@@ -60,12 +68,12 @@ namespace ERPSys
         }
         public decimal BeregnFortjeneste()
         {
-            return Salgsspris - Indkoebspris;
+            return Salgspris - Indkoebspris;
         }
 
         public decimal BeregnAvanceProcent()
         {
-            return Salgsspris / Indkoebspris * 100;
+            return Salgspris / Indkoebspris * 100;
         }
 
 
