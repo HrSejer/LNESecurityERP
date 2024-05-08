@@ -17,6 +17,7 @@ namespace ERPSys
             {
                 ListPage<Salgsordrehoved> salgsordreList = new();
                 salgsordreList.Add(new Salgsordrehoved(1, DateTime.Now, 1, "Bo Niller", 100));
+                salgsordreList.Add(new Salgsordrehoved(2, DateTime.Now, 2, "Kaj Haj", 300));
 
                 salgsordreList.AddColumn("Ordrenummer", "Ordrenummer");
                 salgsordreList.AddColumn("Dato", "Dato");
