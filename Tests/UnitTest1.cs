@@ -1,17 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Xunit;
-
-namespace Tests
+namespace Test1
 {
     public class UnitTest1
     {
-        /*
         [Fact]
-        public void ()
+        public void Test1()
         {
 
         }
-        */
     }
 }
