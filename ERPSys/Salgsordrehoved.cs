@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.Reflection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +14,31 @@ namespace ERPSys
         public DateTime Gennemførelsestidspunkt { get; set; }
         public int Kundenummer { get; set; }
         public string Tilstand { get; set; }
-        
+
         List<string> Ordrelinjer = new List<string>();
         public int Ordrebeløb { get; set; }
-
-        public Salgsordrehoved() { }
-        public Salgsordrehoved(int ordreNummer, int kundeNummer, string tilstand, int ordreBeløb) 
+        public string Kundenavn { get; set; }
+        public DateTime Dato { get; set; }
+        
+        public Salgsordrehoved(int ordreNummer, DateTime dato, int kundeNummer, string kundeNavn, int ordreBeløb) 
         {
             Ordrenummer = ordreNummer;
+            Dato = dato;
             Kundenummer = kundeNummer;
-            Tilstand = tilstand;
+            Kundenavn = kundeNavn;
             Ordrebeløb = ordreBeløb;
         }
+
+        public Salgsordrehoved(int ordreNummer, DateTime dato, int kundeNummer, string kundeNavn, int ordreBeløb, string tilstand)
+        {
+            Ordrenummer = ordreNummer;
+            Dato = dato;
+            Kundenummer = kundeNummer;
+            Kundenavn = kundeNavn;
+            Ordrebeløb = ordreBeløb;
+            ValidTilstand(tilstand);
+        }
+        public Salgsordrehoved() { }
         private string ValidTilstand(string enhed)
         {
             string[] gyldigeEnheder = { "Ingen", "Oprettet", "Bekræftet", "Pakket", "Færdig" };

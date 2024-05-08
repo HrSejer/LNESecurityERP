@@ -20,6 +20,8 @@ namespace ERPSys
             //=====UI referencer====//
             menu.Add(new Companylists());
 
+            menu.Add(new SalgsordreLists());
+
             menu.Add(new KundeListe());
 
             //=====UI referencer====//
