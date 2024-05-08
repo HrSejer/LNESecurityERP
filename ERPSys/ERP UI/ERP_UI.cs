@@ -22,6 +22,8 @@ namespace ERPSys
 
             menu.Add(new SalgsordreLists());
 
+            menu.Add(new ProduktListe());
+
             menu.Add(new KundeListe());
 
             //=====UI referencer====//
