@@ -15,7 +15,7 @@ namespace ERPSys
             do
             {
                 ListPage<Produkt> produktList = new();
-                produktList.Add(new Produkt(1, "Computer", "Kan spille", 2500, 2000, "asd2", 2, "´styk" ,2500));
+                produktList.Add(new Produkt(1, "Computer", "Kan spille", 2500, 9999, "asd2", 2, "styk" ,2500));
                 produktList.Add(new Produkt(2, "a", "a", 2, 2, "a", 2, "a", 2));
                 produktList.Add(new Produkt(3, "a", "a", 2, 2, "a", 2, "a", 2));
 

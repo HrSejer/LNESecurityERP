@@ -21,14 +21,17 @@ namespace ERPSys
 
         public Produkt(int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, string enhed, decimal avance)
         {
-            varenummer = Varenummer;
-            navn = Navn;
-            beskrivelse = Beskrivelse;
-            salgsspris = Salgspris;
-            indkoebspris = Indkoebspris;
-            lokation = ValidLokation(Lokation);
-            antalpaalager = Antalpaalager;
-            enhed = ValidEnhed(Enhed);
+
+            ValidLokation(lokation);
+            ValidEnhed(enhed);
+            Varenummer = varenummer;
+            Navn = navn;
+            Beskrivelse = beskrivelse;
+            Salgspris = salgsspris;
+            Indkoebspris = indkoebspris;
+            Lokation = lokation;
+            Antalpaalager = antalpaalager;
+            Enhed = enhed;
             Avance = avance;
         }
 
