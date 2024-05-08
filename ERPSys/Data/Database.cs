@@ -16,7 +16,7 @@ namespace ERPSys
         Salgsordrehoved Salgsordrehoved = new Salgsordrehoved();
 
         public string ConnectionString { get; set; }
-        public Database() 
+        public Database()
         {
             ConnectionString = "ConnectionString";
         }
