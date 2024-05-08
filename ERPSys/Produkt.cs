@@ -18,10 +18,10 @@ namespace ERPSys
         public decimal Antalpaalager { get; set; }
         public string Enhed { get; set; }
         public decimal Avance { get; set; }
+        public decimal Fortjeneste { get; set; }
 
-        public Produkt(int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, string enhed, decimal avance)
+        public Produkt(int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, string enhed, decimal avance, decimal fortjeneste)
         {
-
             ValidLokation(lokation);
             ValidEnhed(enhed);
             Varenummer = varenummer;
@@ -33,6 +33,7 @@ namespace ERPSys
             Antalpaalager = antalpaalager;
             Enhed = enhed;
             Avance = avance;
+            Fortjeneste = fortjeneste;
         }
 
         public Produkt() 
@@ -46,6 +47,7 @@ namespace ERPSys
             Antalpaalager = 0;
             Enhed = string.Empty;
             Avance = 0;
+            Fortjeneste = 0;
         }
         private string ValidLokation(string lokation)
         {
@@ -71,12 +73,14 @@ namespace ERPSys
         }
         public decimal BeregnFortjeneste()
         {
-            return Salgspris - Indkoebspris;
+            Fortjeneste = Salgspris - Indkoebspris;
+            return Fortjeneste;
         }
 
         public decimal BeregnAvanceProcent()
         {
-            return Salgspris / Indkoebspris * 100;
+            Avance =  Salgspris / Indkoebspris * 100;
+            return Avance;
         }
 
 
