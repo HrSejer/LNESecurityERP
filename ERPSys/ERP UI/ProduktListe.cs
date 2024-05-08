@@ -26,7 +26,6 @@ namespace ERPSys
                 produktList.AddColumn("Indkoebspris", "Indkoebspris");
                 produktList.AddColumn("Salgspris", "Salgspris");
                 produktList.AddColumn("Avance", "Avance");
-                produktList.AddColumn("Fortjeneste", "Fortjeneste");
 
 
                 ExitOnEscape();
