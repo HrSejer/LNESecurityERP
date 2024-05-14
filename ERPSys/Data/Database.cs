@@ -17,10 +17,10 @@ namespace ERPSys
         {
 
         }
+        //use this to call database now: Database database = Database.Instance;
+
         //Salgsordrehoved
-        //sorry for any code breaking this will cause but you need to move this and call it
-        //using this line of code: Database database = Database.Instance;
-        /*
+
         Salgsordrehoved Salgsordrehoved = new Salgsordrehoved();
 
         public string ConnectionString { get; set; }
@@ -346,6 +346,6 @@ namespace ERPSys
                 }
             }
         }
-        */
+        
     }
 }
