@@ -20,6 +20,7 @@ namespace ERPSys
             selectedCompany.AddColumn("Company Name", "CompanyName");
             selectedCompany.AddColumn("Country", "Land");
             selectedCompany.AddColumn("Currency", "Currency");
+            selectedCompany.AddColumn("Vej", "Vej");
             selectedCompany.AddColumn("Husnummer", "Husnummer");
             selectedCompany.AddColumn("Postnummer", "Postnummer");
             selectedCompany.AddColumn("By", "By");

@@ -17,27 +17,29 @@ namespace ERPSys
 
             ExitOnEscape();
 
-            Form<Company> editor = new Form<Company>();
-            editor.TextBox("Company Name", "CompanyName");
-            editor.TextBox("Country", "Land");
-            editor.SelectBox("Currency", "Currency");
+            Form<Company> editor = new();
+
+            editor.TextBox("Company Name", nameof(company.CompanyName));
+            editor.TextBox("Country", nameof(company.Land));
+            editor.TextBox("By", nameof(company.By));
+            editor.TextBox("Husnummer", nameof(company.Husnummer));
+            editor.TextBox("Vej", nameof(company.Vej));
+            editor.TextBox("Postnummer", nameof(company.Postnummer));
+            editor.SelectBox("Currency", nameof(company.Currency));
             editor.AddOption("Currency", "DKK", Currency.Valuta.DKK);
             editor.AddOption("Currency", "USD", Currency.Valuta.USD);
             editor.AddOption("Currency", "EURO", Currency.Valuta.EURO);
             editor.AddOption("Currency", "SEK", Currency.Valuta.SEK);
-            editor.TextBox("Husnummer", "Husnummer");
-            editor.TextBox("Postnummer", "Postnummer");
-            editor.TextBox("By", "By");
 
             if (editor.Edit(company))
             {
                 if (company.Id != 0)
                 {
-                    database.UpdateCompany(company);
+                    Database.Instance.UpdateCompany(company);
                 }
-                else
+                else if(company.Id == 0) 
                 {
-
+                    Database.Instance.InsertCompany(company);
                 }
 
             }

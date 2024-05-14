@@ -22,6 +22,8 @@ namespace ERPSys
                 {                   
                     companylist.Add(company);
                 }
+                companylist.AddKey(ConsoleKey.F1, NewCompany);
+                Console.WriteLine("Tryk F1 for at lave en ny virksomhed");
 
                 companylist.AddKey(ConsoleKey.F2, editCompany);
                 Console.WriteLine("Tryk F2 for at redigere virksomhed");
@@ -49,6 +51,11 @@ namespace ERPSys
         void editCompany(Company company)
         {
             Screen.Display(new EditCompany(company));
+        }
+        void NewCompany(Company _)
+        {
+            Company newcompany = new();
+            Screen.Display(new EditCompany(newcompany));
         }
     }
 }
