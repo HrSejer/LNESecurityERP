@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
+    public enum Enhed
+    {
+        Styk,
+        Timer,
+        Meter
+    }
     public class Produkt
     {
         public int Varenummer { get; set; }
@@ -16,14 +22,13 @@ namespace ERPSys
         public decimal Indkoebspris { get; set; }
         public string Lokation { get; set; }
         public decimal Antalpaalager { get; set; }
-        public string Enhed { get; set; }
+        public Enhed Enhed { get; set; }
         public decimal Avance { get; set; }
         public decimal Fortjeneste { get; set; }
 
-        public Produkt(int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, string enhed, decimal avance, decimal fortjeneste)
+        public Produkt(int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, Enhed enhed, decimal avance, decimal fortjeneste)
         {
             ValidLokation(lokation);
-            ValidEnhed(enhed);
             Varenummer = varenummer;
             Navn = navn;
             Beskrivelse = beskrivelse;
@@ -45,32 +50,19 @@ namespace ERPSys
             Indkoebspris = 0;
             Lokation = string.Empty;
             Antalpaalager = 0;
-            Enhed = string.Empty;
             Avance = 0;
             Fortjeneste = 0;
         }
         private string ValidLokation(string lokation)
         {
-            lokation = "aaa2";
-
             if (lokation.Length != 4 || !lokation.All(char.IsLetterOrDigit))
             {
                 throw new ArgumentException("Lokation skal være 4 bogstaver/tal.");
             }
+
             return lokation;
         }
 
-        private string ValidEnhed(string enhed)
-        {
-            enhed = "styk";
-
-            string[] gyldigeEnheder = { "styk", "timer", "meter" };
-            if (!gyldigeEnheder.Contains(enhed.ToLower()))
-            {
-                throw new ArgumentException("Ugyldig enhed. De tilladte enheder er: styk, timer eller meter.");
-            }
-            return enhed;
-        }
         public decimal BeregnFortjeneste()
         {
             Fortjeneste = Salgspris - Indkoebspris;
