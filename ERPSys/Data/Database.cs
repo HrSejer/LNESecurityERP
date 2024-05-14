@@ -9,10 +9,18 @@ using System.Reflection;
 
 namespace ERPSys
 {
-    public class Database
+    public partial class Database
     {
-        //Salgsordrehoved
+        public static Database Instance { get; private set; } = new Database();
 
+        private Database()
+        {
+
+        }
+        //Salgsordrehoved
+        //sorry for any code breaking this will cause but you need to move this and call it
+        //using this line of code: Database database = Database.Instance;
+        /*
         Salgsordrehoved Salgsordrehoved = new Salgsordrehoved();
 
         public string ConnectionString { get; set; }
@@ -338,5 +346,6 @@ namespace ERPSys
                 }
             }
         }
+        */
     }
 }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
+using System.Globalization;
 
 namespace ERPSys
 {
-    public class CompanyData
+    public partial class Database
     {
         //Premade Data
         List<Company> companylist = new()

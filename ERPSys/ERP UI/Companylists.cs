@@ -9,7 +9,7 @@ namespace ERPSys
 {
     public class Companylists : Screen
     {
-        CompanyData database = new();
+        Database database = Database.Instance;
         public override string Title { get; set; } = "Company List";
         protected override void Draw()
         {

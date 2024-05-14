@@ -9,7 +9,7 @@ namespace ERPSys
 {
     public class EditCompany(Company company) : Screen
     {
-        readonly CompanyData database = new();
+        Database database = Database.Instance;
         public override string Title { get; set; } = "Company Edit";
         protected override void Draw()
         {
