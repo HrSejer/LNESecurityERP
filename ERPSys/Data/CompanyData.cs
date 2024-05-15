@@ -48,6 +48,17 @@ namespace ERPSys
             company.Id = companylist.Count + 1;
             companylist.Add(company);
         }
+        public void DeleteCompany(Company company)
+        {
+            if (company.Id == 0)
+            {
+                return;
+            }
+            if (companylist.Contains(company))
+            {
+                companylist.Remove(company);
+            }
+        }
     }
 
 }

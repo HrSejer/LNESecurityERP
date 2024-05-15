@@ -8,13 +8,16 @@ using TECHCOOL.UI;
 
 namespace ERPSys
 {
-    public class ERP_UI : Screen
+    public class ERP_Menu : Screen
     {
         //er main menu til vores UI
         public override string Title { get; set; } = "Menu";
         protected override void Draw()
         {
-            
+            ExitOnEscape();
+
+            Console.CursorVisible = false;
+
             Clear(this);
             Menu menu = new Menu();
             //=====UI referencer====//
