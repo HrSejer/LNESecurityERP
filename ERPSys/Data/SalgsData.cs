@@ -11,6 +11,34 @@ namespace ERPSys
     {
         Salgsordrehoved Salgsordrehoved = new Salgsordrehoved();
 
+        List<Salgsordrehoved> salgsordrehovedlist = new()
+        {
+            new Salgsordrehoved{Ordrenummer = 1,Dato = DateTime.Now,Kundenummer = 1,Kundenavn = "city1",Ordrebeløb = 1,Tilstand = Tilstand.Færdig },
+        };
+        public void UpdateSalgsordrehoved(Salgsordrehoved salgsordrehoved)
+        {
+            if (salgsordrehoved.Ordrenummer == 0)
+            {
+                return;
+            }
+
+            for (var i = 0; i < salgsordrehovedlist.Count; i++)
+            {
+                if (salgsordrehovedlist[i].Ordrenummer == salgsordrehoved.Ordrenummer)
+                {
+                    salgsordrehovedlist[i] = salgsordrehoved;
+                }
+            }
+        }
+        public void InsertSalgsordrehoved(Salgsordrehoved salgsordrehoved)
+        {
+            if (salgsordrehoved.Ordrenummer != 0)
+            {
+                return;
+            }
+            salgsordrehoved.Ordrenummer = salgsordrehovedlist.Count + 1;
+            salgsordrehovedlist.Add(salgsordrehoved);
+        }
         public Salgsordrehoved SalgsordreID(Salgsordrehoved Salgsordre)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
