@@ -15,7 +15,7 @@ namespace ERPSys
             do
             {
                 ListPage<Kunde> kundeList = new();
-                kundeList.Add(new Kunde("a", "a", "a", null, 1, "a", 1, DateTime.Now));
+                kundeList.Add(new Kunde("Test", "a", "a", null, 1, "a", 1, DateTime.Now));
                 kundeList.Add(new Kunde("a", "a", "a", null, 1, "a", 1, DateTime.Now));
                 kundeList.Add(new Kunde("a", "a", "a", null, 1, "a", 1, DateTime.Now));
 

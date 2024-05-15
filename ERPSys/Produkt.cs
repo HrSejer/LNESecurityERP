@@ -15,6 +15,7 @@ namespace ERPSys
     }
     public class Produkt
     {
+        public int ProduktId { get; set; }
         public int Varenummer { get; set; }
         public string Navn { get; set; }
         public string Beskrivelse { get; set; }
@@ -26,9 +27,10 @@ namespace ERPSys
         public decimal Avance { get; set; }
         public decimal Fortjeneste { get; set; }
 
-        public Produkt(int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, Enhed enhed, decimal avance, decimal fortjeneste)
+        public Produkt(int produktId, int varenummer, string navn, string beskrivelse, decimal salgsspris, decimal indkoebspris, string lokation, decimal antalpaalager, Enhed enhed, decimal avance, decimal fortjeneste)
         {
             ValidLokation(lokation);
+            ProduktId = produktId;
             Varenummer = varenummer;
             Navn = navn;
             Beskrivelse = beskrivelse;
@@ -42,7 +44,8 @@ namespace ERPSys
         }
 
         public Produkt() 
-        { 
+        {
+            ProduktId = 0;
             Varenummer = 0;
             Navn = string.Empty;
             Beskrivelse = string.Empty;

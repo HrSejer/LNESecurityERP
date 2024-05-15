@@ -16,6 +16,7 @@ namespace ERPSys
 
             ListPage<Produkt> selectedProdukt = new ListPage<Produkt>();
             selectedProdukt.Add(produkt);
+            selectedProdukt.AddColumn("ProduktId", "ProduktId");
             selectedProdukt.AddColumn("Varenummer", "Varenummer");
             selectedProdukt.AddColumn("Navn", "Navn");
             selectedProdukt.AddColumn("Beskrivelse", "Beskrivelse");

@@ -9,17 +9,27 @@ namespace ERPSys
 {
     public class ProduktListe : Screen
     {
+        Database database = Database.Instance;
         public override string Title { get; set; } = "Produkt List";
         protected override void Draw()
         {
             do
             {
                 ListPage<Produkt> produktList = new();
-                produktList.Add(new Produkt(1, "Computer", "Kan spille", 2500, 9999, "as32", 2, Enhed.Meter ,2500, 2000));
-                produktList.Add(new Produkt(2, "Computer", "Kan spille", 2500, 9999, "ahd2", 2, Enhed.Timer, 2500, 2000));
-                produktList.Add(new Produkt(3, "Computer", "Kan spille", 2500, 9999, "lsd2", 2, Enhed.Styk, 2500, 2000));
+
+                var produkts = database.GetProdukt();
+                foreach (Produkt produkt in produkts)
+                {
+                    produktList.Add(produkt);
+                }
+                produktList.AddKey(ConsoleKey.F3, NewProdukt);
+                Console.WriteLine("Tryk F3 for at lave et nyt produkt");
+
+                produktList.AddKey(ConsoleKey.F2, editProdukt);
+                Console.WriteLine("Tryk F2 for at redigere produkt");
 
                 //used to tell it what data from the class it should use
+                produktList.AddColumn("ProduktId", "ProduktId");
                 produktList.AddColumn("Varenummer", "Varenummer");
                 produktList.AddColumn("Navn", "Navn");
                 produktList.AddColumn("Lagerantal", "Antalpaalager");
@@ -40,6 +50,16 @@ namespace ERPSys
                     return;
                 }
             } while (Show);
+
+            void editProdukt(Produkt produkt)
+            {
+                Screen.Display(new EditProdukt(produkt));
+            }
+            void NewProdukt(Produkt _)
+            {
+                Produkt newprodukt = new();
+                Screen.Display(new EditProdukt(newprodukt));
+            }
         }
     }
 }

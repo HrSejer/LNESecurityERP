@@ -15,11 +15,11 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string sqlQuery = "SELECT * FROM Produkt WHERE Varenummer = @Varenummer";
+                string sqlQuery = "SELECT * FROM Produkt WHERE ProduktId = @ProduktId";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@Varenummer", ProduktId);
+                    command.Parameters.AddWithValue("@ProduktId", ProduktId);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -27,7 +27,7 @@ namespace ERPSys
                         {
                             Produkt produkt = new Produkt
                             {
-                                Varenummer = Convert.ToInt32(reader["Ordrenummer"]),
+                                ProduktId = Convert.ToInt32(reader["ProduktId"]),
                             };
 
                             return ProduktId;
@@ -43,7 +43,7 @@ namespace ERPSys
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                string query = "SELECT Varenummer, Navn FROM Produkt";
+                string query = "SELECT ProduktId, Navn FROM Produkt";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -51,16 +51,16 @@ namespace ERPSys
                     {
                         while (reader.Read())
                         {
-                            int varenummer = reader.GetInt32(reader.GetOrdinal("Varenummer"));
+                            int produktId = reader.GetInt32(reader.GetOrdinal("ProduktId"));
                             string navn = reader.GetString(reader.GetOrdinal("Name"));
 
                             Produkt produkt = new Produkt
                             {
-                                Varenummer = varenummer,
+                                ProduktId = produktId,
                                 Navn = navn
                             };
 
-                            Console.WriteLine($"ID: {produkt.Varenummer}, Name: {produkt.Navn}");
+                            Console.WriteLine($"ID: {produkt.ProduktId}, Name: {produkt.Navn}");
                         }
                     }
                 }
@@ -73,11 +73,11 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string Query = "INSERT INTO Produkt VALUES (@Varenummer)";
+                string Query = "INSERT INTO Produkt VALUES (@ProduktId)";
 
                 using (SqlCommand cmd = new SqlCommand(Query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+                    cmd.Parameters.AddWithValue("@ProduktId", produkt.ProduktId);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -89,11 +89,11 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string query = "UPDATE Produkt SET Varenummer = @Varenummer";
+                string query = "UPDATE Produkt SET ProduktId = @ProdukId";
 
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+                    cmd.Parameters.AddWithValue("@ProduktId", produkt.ProduktId);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -105,15 +105,50 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string query = "DELETE FROM Produkt WHERE Varenummer = @Varenummer";
+                string query = "DELETE FROM Produkt WHERE ProduktId = @ProduktId";
 
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+                    cmd.Parameters.AddWithValue("@ProduktId", produkt.ProduktId);
 
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+        public List<Produkt> GetProdukt()
+        {
+            List<Produkt> produktCopy = new();
+            produktCopy.AddRange(produktlist);
+            return produktCopy;
+        }
+
+        List<Produkt> produktlist = new()
+        {
+            new Produkt{ProduktId = 1, Varenummer = 1, Navn = "Computer", Beskrivelse = "Kan Spille", Salgspris = 2500, Indkoebspris = 9999, Lokation = "ff3g", Antalpaalager = 2, Enhed = Enhed.Styk, Avance = 25, Fortjeneste = 2000 }
+        };
+        public void UpdateProdukt(Produkt produkt)
+        {
+            if (produkt.ProduktId == 0)
+            {
+                return;
+            }
+
+            for (var i = 0; i < produktlist.Count; i++)
+            {
+                if (produktlist[i].ProduktId == produkt.ProduktId)
+                {
+                    produktlist[i] = produkt;
+                }
+            }
+        }
+        public void InsertProdukt(Produkt produkt)
+        {
+            if (produkt.ProduktId != 0)
+            {
+                return;
+            }
+            produkt.ProduktId = produktlist.Count + 1;
+            produktlist.Add(produkt);
         }
     }
 }
