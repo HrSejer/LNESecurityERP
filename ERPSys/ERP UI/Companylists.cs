@@ -15,6 +15,8 @@ namespace ERPSys
         {
             do
             {
+                ExitOnEscape();
+
                 ListPage<Company> companylist = new();
 
                 var companies = database.GetCompanies();
@@ -22,6 +24,9 @@ namespace ERPSys
                 {                   
                     companylist.Add(company);
                 }
+                companylist.AddKey(ConsoleKey.F5, DeleteCompany);
+                Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
+
                 companylist.AddKey(ConsoleKey.F1, NewCompany);
                 Console.WriteLine("Tryk F1 for at lave en ny virksomhed");
 
@@ -34,8 +39,6 @@ namespace ERPSys
                 companylist.AddColumn("Country", "Land");
                 companylist.AddColumn("Currency", "Currency");
 
-
-                ExitOnEscape();
                 Company selected = companylist.Select();
                 if (selected != null)
                 {
@@ -47,6 +50,12 @@ namespace ERPSys
                     return;
                 }
             } while (Show);
+        }
+        void DeleteCompany(Company company)
+        {
+            Database.Instance.DeleteCompany(company);
+            Screen.Clear(this);
+            Draw();
         }
         void editCompany(Company company)
         {

@@ -1,4 +1,5 @@
 ﻿using ERPSys;
+using ERPSys.Data;
 using TECHCOOL.UI;
 
 namespace ERPSys
@@ -8,8 +9,8 @@ namespace ERPSys
         public static void Main(string[] args)
         {
         
-            ERP_UI firstScreen = new ERP_UI();
-            Screen.Display(new ERP_UI());
+            Opening_UI firstScreen = new Opening_UI();
+            Screen.Display(new Opening_UI());
         }
     }
 }
