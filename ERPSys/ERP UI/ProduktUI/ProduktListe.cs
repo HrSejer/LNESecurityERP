@@ -28,6 +28,9 @@ namespace ERPSys
                 produktList.AddKey(ConsoleKey.F2, editProdukt);
                 Console.WriteLine("Tryk F2 for at redigere produkt");
 
+                produktList.AddKey(ConsoleKey.F5, DeleteProdukt);
+                Console.WriteLine("Tryk F5 for at fjerne produkt");
+
                 //used to tell it what data from the class it should use
                 produktList.AddColumn("ProduktId", "ProduktId");
                 produktList.AddColumn("Varenummer", "Varenummer");
@@ -55,10 +58,18 @@ namespace ERPSys
             {
                 Screen.Display(new EditProdukt(produkt));
             }
+
             void NewProdukt(Produkt _)
             {
                 Produkt newprodukt = new();
                 Screen.Display(new EditProdukt(newprodukt));
+            }
+
+            void DeleteProdukt(Produkt produkt)
+            {
+                Database.Instance.DeleteProdukt(produkt);
+                Screen.Clear(this);
+                Draw();
             }
         }
     }

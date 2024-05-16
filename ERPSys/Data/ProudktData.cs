@@ -150,5 +150,18 @@ namespace ERPSys
             produkt.ProduktId = produktlist.Count + 1;
             produktlist.Add(produkt);
         }
+
+        public void DeleteProdukt(Produkt produkt)
+        {
+            if (produkt.ProduktId == 0)
+            {
+                return;
+            }
+            if (produktlist.Contains(produkt))
+            {
+                produktlist.Remove(produkt);
+            }
+        }
     }
 }
+
