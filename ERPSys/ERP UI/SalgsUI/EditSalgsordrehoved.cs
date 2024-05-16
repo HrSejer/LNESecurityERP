@@ -24,6 +24,12 @@ namespace ERPSys.ERP_UI
             editor.TextBox("Kundenummer", nameof(salgsordrehoved.Kundenummer));
             editor.TextBox("Kundenavn", nameof(salgsordrehoved.Kundenavn));
             editor.TextBox("Ordrebeløb", nameof(salgsordrehoved.Ordrebeløb));
+            editor.SelectBox("Tilstand", nameof(salgsordrehoved.Tilstand));
+            editor.AddOption("Tilstand", "Ingen", Tilstand.Ingen);
+            editor.AddOption("Tilstand", "Oprettet", Tilstand.Oprettet);
+            editor.AddOption("Tilstand", "Bekræftet", Tilstand.Bekræftet);
+            editor.AddOption("Tilstand", "Pakket", Tilstand.Pakket);
+            editor.AddOption("Tilstand", "Færdig", Tilstand.Færdig);
 
             if (editor.Edit(salgsordrehoved))
             {
