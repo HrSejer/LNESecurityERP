@@ -19,11 +19,11 @@ namespace ERPSys.ERP_UI
 
             Form<Salgsordrehoved> editor = new();
 
-            editor.TextBox("Company Name", nameof(salgsordrehoved.Ordrenummer));
-            editor.TextBox("Country", nameof(salgsordrehoved.Dato));
-            editor.TextBox("By", nameof(salgsordrehoved.Kundenummer));
-            editor.TextBox("Husnummer", nameof(salgsordrehoved.Kundenavn));
-            editor.TextBox("Vej", nameof(salgsordrehoved.Ordrebeløb));
+            editor.TextBox("Ordrenummer", nameof(salgsordrehoved.Ordrenummer));
+            editor.TextBox("Dato", nameof(salgsordrehoved.Dato));
+            editor.TextBox("Kundenummer", nameof(salgsordrehoved.Kundenummer));
+            editor.TextBox("Kundenavn", nameof(salgsordrehoved.Kundenavn));
+            editor.TextBox("Ordrebeløb", nameof(salgsordrehoved.Ordrebeløb));
 
             if (editor.Edit(salgsordrehoved))
             {

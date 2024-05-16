@@ -15,6 +15,13 @@ namespace ERPSys
         {
             new Salgsordrehoved{Ordrenummer = 1,Dato = DateTime.Now,Kundenummer = 1,Kundenavn = "city1",Ordrebeløb = 1,Tilstand = Tilstand.Færdig },
         };
+
+        public List<Salgsordrehoved> GetSalgsordre()
+        {
+            List<Salgsordrehoved> salgsordrehovedcopy = new();
+            salgsordrehovedcopy.AddRange(salgsordrehovedlist);
+            return salgsordrehovedcopy;
+        }
         public void UpdateSalgsordrehoved(Salgsordrehoved salgsordrehoved)
         {
             if (salgsordrehoved.Ordrenummer == 0)

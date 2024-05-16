@@ -2,6 +2,7 @@
 using Org.BouncyCastle.Crypto.Engines;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,22 @@ namespace ERPSys
 {
     public class SalgsordreLists : Screen
     {
+        Database database = Database.Instance;
         public override string Title { get; set; } = "Salgsordre list";
         protected override void Draw()
         {
             do
             {
                 ListPage<Salgsordrehoved> salgsordreList = new();
-                salgsordreList.Add(new Salgsordrehoved(1, DateTime.Now, 1, "Bo Niller", 100, Tilstand.Oprettet));
-                salgsordreList.Add(new Salgsordrehoved(2, DateTime.Now, 2, "Kaj Haj", 300, Tilstand.Færdig));
+
+                var salgsordres = database.GetSalgsordre();
+                foreach (Salgsordrehoved salgsordrehoved in salgsordres)
+                {
+                    salgsordreList.Add(salgsordrehoved);
+                }
 
                 salgsordreList.AddKey(ConsoleKey.F2, editSalgsordre);
-                Console.WriteLine("Tryk F2 for at redigere virksomhed");
+                Console.WriteLine("Tryk F2 for at redigere Salgsordre");
 
                 salgsordreList.AddColumn("Ordrenummer", "Ordrenummer");
                 salgsordreList.AddColumn("Dato", "Dato");
