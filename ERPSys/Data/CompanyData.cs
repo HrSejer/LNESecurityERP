@@ -10,7 +10,7 @@ namespace ERPSys
 {
     public partial class Database
     {
-        //Premade Data
+        //TEST DATA Premade Data
         List<Company> companylist = new()
         {
             new Company{Id = 1,CompanyName = "Company1",Land = "companycountry1",By = "city1",Vej = "Someroad1",Husnummer = "5",Postnummer = "9303",Currency = Currency.Valuta.DKK },

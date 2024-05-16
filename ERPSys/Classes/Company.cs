@@ -8,7 +8,6 @@ using static ERPSys.Currency;
 
 namespace ERPSys
 {
-    //Class/constructor for the UI 
     public class Company
     {
         public int Id { get; set; }
