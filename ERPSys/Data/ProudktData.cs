@@ -9,7 +9,7 @@ namespace ERPSys
 {
     public partial class Database
     {
-        public Produkt ProduktId(Produkt ProduktId)
+        public Produkt? ProduktId(Produkt ProduktId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
