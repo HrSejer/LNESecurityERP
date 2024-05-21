@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    public class Person
+    public class Person : Addresse
     {
-        public Addresse Addresser { get; set; }
         public string Navn { get; set; }
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
         public int Tlfnummer { get; set; }
         public string Mail { get; set; }
-        public Person()
+        public Person(): base()
         {
 
         }
 
-        public Person(string navn, string fornavn, string efternavn, Addresse addresser, int tlfnummer, string mail) 
+        public Person(string navn, string fornavn, string efternavn, int tlfnummer, string mail, int addressId, string Address) : base(addressId, Address)
         {
             Navn = navn;
             Fornavn = fornavn;
             Efternavn = efternavn;
-            Addresser = addresser;
+            AddressId = addressId;
+            Addresser = Address;
             Tlfnummer = tlfnummer;
             Mail = mail;
         }

@@ -12,11 +12,11 @@ namespace ERPSys
         //TEST DATA Premade Data
         List<Kunde> kundelist = new()
         {
-            new Kunde("Sombody with", "Sombody", "with", null, 12345678, "somewhere@some.dk", 1, DateTime.Now),
-            new Kunde("Jhon Doe", "Jhon", "Doe", null, 12345678, "somewhere@some.dk", 2, DateTime.Now),
-            new Kunde("Jane Doe", "Jane", "Doe", null, 12345678, "somewhere@some.dk", 3, DateTime.Now)
-
+            new Kunde("Sombody with", "Sombody", "with", 12345678, "somewhere@some.dk",1,"9120", 1, DateTime.Now),
+            new Kunde("Jhon Doe", "Jhon", "Doe", 12345678, "somewhere@some.dk",2,"1234", 2, DateTime.Now),
+            new Kunde("Jane Doe", "Jane", "Doe", 12345678, "somewhere@some.dk", 3,"8721", 3, DateTime.Now)
         };
+
         public List<Kunde> GetKunde()
         {
             List<Kunde> KundeCopy = new();
@@ -45,6 +45,7 @@ namespace ERPSys
                 return;
             }
             kunde.KundeNummer = kundelist.Count + 1;
+            kunde.AddressId = kunde.KundeNummer;
             kundelist.Add(kunde);
         }
         public void DeleteKunde(Kunde kunde)

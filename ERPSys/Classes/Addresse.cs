@@ -8,7 +8,15 @@ namespace ERPSys
 {
     public class Addresse
     {
-        public string Addresser { get; set; }
-        public Addresse() { } 
+        public int AddressId { get; set; }
+        public string Addresser { get; set; } 
+        public Addresse() 
+        { 
+        }
+        public Addresse(int addressId, string addresser) 
+        {
+            AddressId = addressId;
+            Addresser = addresser;
+        }
     }
 }

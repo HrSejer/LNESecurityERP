@@ -20,7 +20,7 @@ namespace ERPSys
             selectedkunde.AddColumn("Navn", "Navn");
             selectedkunde.AddColumn("Tlfnummer", "Tlfnummer");
             selectedkunde.AddColumn("Email", "Mail");
-            selectedkunde.AddColumn("Adresse", "Addresser");
+            selectedkunde.AddColumn("Adresse", nameof(kunde.Addresser));
             selectedkunde.AddColumn("Dato", "Dato");
 
             selectedkunde.Draw();
