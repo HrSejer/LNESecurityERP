@@ -9,6 +9,56 @@ namespace ERPSys
 {
     public partial class Database
     {
+        //TEST DATA Premade Data
+        List<Kunde> kundelist = new()
+        {
+            new Kunde("Sombody with", "Sombody", "with", null, 12345678, "somewhere@some.dk", 1, DateTime.Now),
+            new Kunde("Jhon Doe", "Jhon", "Doe", null, 12345678, "somewhere@some.dk", 2, DateTime.Now),
+            new Kunde("Jane Doe", "Jane", "Doe", null, 12345678, "somewhere@some.dk", 3, DateTime.Now)
+
+        };
+        public List<Kunde> GetKunde()
+        {
+            List<Kunde> KundeCopy = new();
+            KundeCopy.AddRange(kundelist);
+            return KundeCopy;
+        }
+        public void UpdateKunde(Kunde Kunde)
+        {
+            if (Kunde.KundeNummer == 0)
+            {
+                return;
+            }
+
+            for (var i = 0; i < kundelist.Count; i++)
+            {
+                if (kundelist[i].KundeNummer == Kunde.KundeNummer)
+                {
+                    kundelist[i] = Kunde;
+                }
+            }
+        }
+        public void InsertKunde(Kunde kunde)
+        {
+            if (kunde.KundeNummer != 0)
+            {
+                return;
+            }
+            kunde.KundeNummer = kundelist.Count + 1;
+            kundelist.Add(kunde);
+        }
+        public void DeleteKunde(Kunde kunde)
+        {
+            if (kunde.KundeNummer == 0)
+            {
+                return;
+            }
+            if (kundelist.Contains(kunde))
+            {
+                kundelist.Remove(kunde);
+            }
+        }
+        /*
         public Kunde KundeId(Kunde KundeId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -38,7 +88,7 @@ namespace ERPSys
             }
             return null;
         }
-        public void KundeAlle()
+        public void GetKunde()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -66,6 +116,7 @@ namespace ERPSys
                 }
             }
         }
+        
         public void indsaetKunde(Kunde kunde)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -114,5 +165,6 @@ namespace ERPSys
                 }
             }
         }
+        */
     }
 }

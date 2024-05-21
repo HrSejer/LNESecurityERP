@@ -9,5 +9,6 @@ namespace ERPSys
     public class Addresse
     {
         public string Addresser { get; set; }
+        public Addresse() { } 
     }
 }

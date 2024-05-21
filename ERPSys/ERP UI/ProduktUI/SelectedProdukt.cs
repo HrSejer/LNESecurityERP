@@ -27,9 +27,7 @@ namespace ERPSys
             selectedProdukt.AddColumn("Enhed", "Enhed");
             selectedProdukt.AddColumn("Avance", "Avance");
             selectedProdukt.AddColumn("Fortjeneste", "Fortjeneste");
-
             selectedProdukt.Draw();
-
             ExitOnEscape();
         }
     }

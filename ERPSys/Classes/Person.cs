@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Asn1.BC;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +14,10 @@ namespace ERPSys
         public string Efternavn { get; set; }
         public int Tlfnummer { get; set; }
         public string Mail { get; set; }
+        public Person()
+        {
+
+        }
 
         public Person(string navn, string fornavn, string efternavn, Addresse addresser, int tlfnummer, string mail) 
         {
@@ -29,11 +32,6 @@ namespace ERPSys
         public string Fullname()
         {
             return $"{Fornavn} {Efternavn}";
-        }
-
-        public void DisplayInfo()
-        {
-
         }
     }
 }

@@ -24,14 +24,15 @@ namespace ERPSys
                 {                   
                     companylist.Add(company);
                 }
-                companylist.AddKey(ConsoleKey.F5, DeleteCompany);
-                Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
-
+                
                 companylist.AddKey(ConsoleKey.F1, NewCompany);
                 Console.WriteLine("Tryk F1 for at lave en ny virksomhed");
 
                 companylist.AddKey(ConsoleKey.F2, editCompany);
                 Console.WriteLine("Tryk F2 for at redigere virksomhed");
+
+                companylist.AddKey(ConsoleKey.F5, DeleteCompany);
+                Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
 
                 //used to tell it what data from the class it should use in the order of
                 //displaying name then the Code name
@@ -51,6 +52,7 @@ namespace ERPSys
                 }
             } while (Show);
         }
+        
         void DeleteCompany(Company company)
         {
             Database.Instance.DeleteCompany(company);
