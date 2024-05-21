@@ -9,7 +9,7 @@ namespace ERPSys
         public static void Main(string[] args)
         {
         
-            Opening_UI firstScreen = new Opening_UI();
+            Opening_UI firstScreen = new();
             Screen.Display(new Opening_UI());
         }
     }

@@ -32,8 +32,8 @@ namespace ERPSys
                 kundeList.AddKey(ConsoleKey.F2, editKunde);
                 Console.WriteLine("Tryk F2 for at redigere virksomhed");
 
-                //kundeList.AddKey(ConsoleKey.F5, DeleteCompany);
-                //Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
+                kundeList.AddKey(ConsoleKey.F5, DeleteCompany);
+                Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
 
                 //used to tell it what data from the class it should use
                 kundeList.AddColumn("Kundenummer", "KundeNummer");
@@ -63,6 +63,12 @@ namespace ERPSys
             {
                 Kunde newkunde = new();
                 Screen.Display(new KundeEdit(newkunde));
+            }
+            void DeleteCompany(Kunde kunde)
+            {
+                Database.Instance.DeleteKunde(kunde);
+                Screen.Clear(this);
+                Draw();
             }
         }
     }

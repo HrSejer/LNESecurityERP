@@ -41,11 +41,11 @@ namespace ERPSys
                 {
                     Database.Instance.InsertCompany(company);
                 }
-
+                Console.WriteLine("Company saved");
             }
             else
             {
-
+                Console.WriteLine("Company not saved");
             }
         }
     }

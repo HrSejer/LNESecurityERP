@@ -9,7 +9,7 @@ namespace ERPSys
 {
     public partial class Database
     {
-        Salgsordrehoved Salgsordrehoved = new Salgsordrehoved();
+        Salgsordrehoved Salgsordrehoved = new();
 
         List<Salgsordrehoved> salgsordrehovedlist = new()
         {
@@ -46,15 +46,15 @@ namespace ERPSys
             salgsordrehoved.Ordrenummer = salgsordrehovedlist.Count + 1;
             salgsordrehovedlist.Add(salgsordrehoved);
         }
-        public Salgsordrehoved SalgsordreID(Salgsordrehoved Salgsordre)
+        public Salgsordrehoved? SalgsordreID(Salgsordrehoved Salgsordre)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new(ConnectionString))
             {
                 connection.Open();
 
                 string sqlQuery = "SELECT * FROM Salgsordre WHERE Ordrenummer = @Ordrenummer";
 
-                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                using (SqlCommand command = new(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@Ordrenummer", Salgsordre);
 
@@ -62,7 +62,7 @@ namespace ERPSys
                     {
                         if (reader.Read())
                         {
-                            Salgsordrehoved product = new Salgsordrehoved
+                            Salgsordrehoved product = new()
                             {
                                 Ordrenummer = Convert.ToInt32(reader["Ordrenummer"]),
                             };
@@ -76,13 +76,13 @@ namespace ERPSys
         }
         public void SalgsordreAlle()
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new(ConnectionString))
             {
                 connection.Open();
 
                 string query = "SELECT * FROM Salgsordre";
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -90,7 +90,7 @@ namespace ERPSys
                         {
                             int ordrenummer = reader.GetInt32(reader.GetOrdinal("ordrenummer"));
 
-                            Salgsordrehoved Salgsordre = new Salgsordrehoved
+                            Salgsordrehoved Salgsordre = new()
                             {
                                 Ordrenummer = ordrenummer,
                             };
@@ -103,13 +103,13 @@ namespace ERPSys
         }
         public void IndsaetSalgsordre(Salgsordrehoved Salgsordre)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new(ConnectionString))
             {
                 connection.Open();
 
                 string Query = "INSERT INTO Salgsordre VALUES (@Ordrenummer)";
 
-                using (SqlCommand cmd = new SqlCommand(Query, connection))
+                using (SqlCommand cmd = new(Query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
 
@@ -119,13 +119,13 @@ namespace ERPSys
         }
         public void OpdaterSalgsordre(Salgsordrehoved Salgsordre)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new(ConnectionString))
             {
                 connection.Open();
 
                 string query = "UPDATE Salgsordre SET Ordrenummer = @Ordrenummer";
 
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                using (SqlCommand cmd = new(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
 
@@ -136,13 +136,13 @@ namespace ERPSys
 
         public void SletSalgsordre(Salgsordrehoved Salgsordre)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new(ConnectionString))
             {
                 connection.Open();
 
                 string query = "DELETE FROM Salgsordre WHERE Ordrenummer = @Ordrenummer";
 
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                using (SqlCommand cmd = new(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@SalgsordreId", Salgsordre.Ordrenummer);
 

@@ -20,8 +20,7 @@ namespace ERPSys
 
         public List<Company> GetCompanies()
         {
-            List<Company> companyCopy = new();
-            companyCopy.AddRange(companylist);
+            List<Company> companyCopy = [.. companylist];
             return companyCopy;
         }
         public void UpdateCompany(Company company)

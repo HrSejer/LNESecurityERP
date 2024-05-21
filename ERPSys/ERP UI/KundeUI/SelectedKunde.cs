@@ -14,7 +14,7 @@ namespace ERPSys
         {
             Clear(this);
 
-            ListPage<Kunde> selectedkunde = new ListPage<Kunde>();
+            ListPage<Kunde> selectedkunde = new();
             selectedkunde.Add(kunde);
             selectedkunde.AddColumn("Kundenummer", "KundeNummer");
             selectedkunde.AddColumn("Navn", "Navn");

@@ -42,11 +42,11 @@ namespace ERPSys
                     kunde.Dato = DateTime.Now;
                     Database.Instance.InsertKunde(kunde);
                 }
-
+                Console.WriteLine("Kunde gemt");
             }
             else
             {
-
+                Console.WriteLine("kunde blev ikke gemt");
             }
         }
     }
