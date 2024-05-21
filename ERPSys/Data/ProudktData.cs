@@ -9,6 +9,7 @@ namespace ERPSys
 {
     public partial class Database
     {
+        //note here was a NULL warning may be Null
         public Produkt? ProduktId(Produkt ProduktId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
