@@ -19,7 +19,7 @@ namespace ERPSys
             Console.CursorVisible = false;
 
             Clear(this);
-            Menu menu = new Menu();
+            Menu menu = new();
             //=====UI referencer====//
             menu.Add(new Companylists());
 
