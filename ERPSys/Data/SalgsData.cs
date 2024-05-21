@@ -46,6 +46,18 @@ namespace ERPSys
             salgsordrehoved.Ordrenummer = salgsordrehovedlist.Count + 1;
             salgsordrehovedlist.Add(salgsordrehoved);
         }
+
+        public void DeleteSalgsordre(Salgsordrehoved salgsordrehoved)
+        {
+            if (salgsordrehoved.Ordrenummer == 0)
+            {
+                return;
+            }
+            if (salgsordrehovedlist.Contains(salgsordrehoved))
+            {
+                salgsordrehovedlist.Remove(salgsordrehoved);
+            }
+        }
         public Salgsordrehoved SalgsordreID(Salgsordrehoved Salgsordre)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))

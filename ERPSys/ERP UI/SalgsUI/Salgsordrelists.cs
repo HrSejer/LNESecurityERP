@@ -26,8 +26,14 @@ namespace ERPSys
                     salgsordreList.Add(salgsordrehoved);
                 }
 
+                salgsordreList.AddKey(ConsoleKey.F1, NewSalgsordre);
+                Console.WriteLine("Tryk F1 for at lave en ny Salgsordre");
+
                 salgsordreList.AddKey(ConsoleKey.F2, editSalgsordre);
                 Console.WriteLine("Tryk F2 for at redigere Salgsordre");
+
+                salgsordreList.AddKey(ConsoleKey.F5, DeleteSalgsordre);
+                Console.WriteLine("Tryk F5 for at Fjerne Salgsordre");
 
                 salgsordreList.AddColumn("Ordrenummer", "Ordrenummer");
                 salgsordreList.AddColumn("Dato", "Dato");
@@ -49,14 +55,20 @@ namespace ERPSys
             }
             while (Show);
         }
+        void DeleteSalgsordre(Salgsordrehoved salgsordrehoved)
+        {
+            Database.Instance.DeleteSalgsordre(salgsordrehoved);
+            Screen.Clear(this);
+            Draw();
+        }
         void editSalgsordre(Salgsordrehoved salgsordrehoved)
         {
             Screen.Display(new EditSalgsordrehoved(salgsordrehoved));
         }
-        void NewCompany(Company _)
+        void NewSalgsordre(Salgsordrehoved salgsordrehoved)
         {
-            Company newcompany = new();
-            Screen.Display(new EditCompany(newcompany));
+            Salgsordrehoved newcsalgsordre = new();
+            Screen.Display(new EditSalgsordrehoved(newcsalgsordre));
         }
     }
 }
