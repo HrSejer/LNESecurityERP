@@ -39,6 +39,7 @@ namespace ERPSys
                 }
                 else if (kunde.KundeNummer == 0)
                 {
+                    kunde.Dato = DateTime.Now;
                     Database.Instance.InsertKunde(kunde);
                 }
 

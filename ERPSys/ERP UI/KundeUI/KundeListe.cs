@@ -26,14 +26,14 @@ namespace ERPSys
                     kundeList.Add(kunde);
                 }
 
-                //kundeList.AddKey(ConsoleKey.F5, DeleteCompany);
-                //Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
-
-                //kundeList.AddKey(ConsoleKey.F1, NewCompany);
-                //Console.WriteLine("Tryk F1 for at lave en ny virksomhed");
+                kundeList.AddKey(ConsoleKey.F1, NewCompany);
+                Console.WriteLine("Tryk F1 for at lave en ny virksomhed");
 
                 kundeList.AddKey(ConsoleKey.F2, editKunde);
                 Console.WriteLine("Tryk F2 for at redigere virksomhed");
+
+                //kundeList.AddKey(ConsoleKey.F5, DeleteCompany);
+                //Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
 
                 //used to tell it what data from the class it should use
                 kundeList.AddColumn("Kundenummer", "KundeNummer");
@@ -53,9 +53,16 @@ namespace ERPSys
                     return;
                 }
             } while (Show);
+
             void editKunde(Kunde kunde)
             {
                 Screen.Display(new KundeEdit(kunde));
+            }
+
+            void NewCompany(Kunde _)
+            {
+                Kunde newkunde = new();
+                Screen.Display(new KundeEdit(newkunde));
             }
         }
     }
