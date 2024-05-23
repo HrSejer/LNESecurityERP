@@ -19,7 +19,5 @@ namespace ERPSys
         {
             ConnectionString = "Connectionstring";
         }
-        //use this to call database now: Database database = Database.Instance;
-        
     }
 }
