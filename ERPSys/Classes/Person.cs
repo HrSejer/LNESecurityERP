@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    public class Person : Addresse
+    public class Person
     {
         public int PersonId { get; set; }
         public string Navn { get; set; }
@@ -21,14 +21,12 @@ namespace ERPSys
 
         }
 
-        public Person(int personid, string navn, string fornavn, string efternavn, int tlfnummer, string mail, int addressId, string Address) : base(addressId, Address)
+        public Person(int personid, string navn, string fornavn, string efternavn, int tlfnummer, string mail)
         {
             PersonId = personid;
             Navn = navn;
             Fornavn = fornavn;
             Efternavn = efternavn;
-            AddressId = addressId;
-            Addresser = Address;
             Tlfnummer = tlfnummer;
             Mail = mail;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERPSys
 {
-    public class Kunde : Person
+    public class Kunde : Addresse
     {
         public int KundeNummer { get; set; }
         public DateTime Dato { get; set; }
@@ -18,12 +18,6 @@ namespace ERPSys
         {
             KundeNummer = kundenummer;
             Dato = dato;
-            Navn = navn;
-            Fornavn = fornavn;
-            Efternavn = efternavn;
-            
-            Tlfnummer = tlfnummer;
-            Mail = mail;
         }     
     }
 }
