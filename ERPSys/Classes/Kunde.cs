@@ -13,8 +13,8 @@ namespace ERPSys
         public Kunde() : base() 
         {
         }
-        public Kunde(string navn, string fornavn, string efternavn, int tlfnummer, string mail, int AddressId, string Address, int kundenummer, DateTime dato)
-            : base(navn, fornavn, efternavn, tlfnummer, mail,AddressId,Address)
+        public Kunde(int personid, string navn, string fornavn, string efternavn, int tlfnummer, string mail, int AddressId, string Address, int kundenummer, DateTime dato)
+            : base(personid, navn, fornavn, efternavn, tlfnummer, mail,AddressId,Address)
         {
             KundeNummer = kundenummer;
             Dato = dato;

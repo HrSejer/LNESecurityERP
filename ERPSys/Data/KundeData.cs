@@ -12,9 +12,9 @@ namespace ERPSys
         //TEST DATA Premade Data
         List<Kunde> kundelist = new()
         {
-            new Kunde("Sombody with", "Sombody", "with", 12345678, "somewhere@some.dk",1,"9120", 1, DateTime.Now),
-            new Kunde("Jhon Doe", "Jhon", "Doe", 12345678, "somewhere@some.dk",2,"1234", 2, DateTime.Now),
-            new Kunde("Jane Doe", "Jane", "Doe", 12345678, "somewhere@some.dk", 3,"8721", 3, DateTime.Now)
+            new Kunde(1, "Sombody with", "Sombody", "with", 12345678, "somewhere@some.dk",1,"9120", 1, DateTime.Now),
+            new Kunde(2, "Jhon Doe", "Jhon", "Doe", 12345678, "somewhere@some.dk",2,"1234", 2, DateTime.Now),
+            new Kunde(3, "Jane Doe", "Jane", "Doe", 12345678, "somewhere@some.dk", 3,"8721", 3, DateTime.Now)
         };
 
         public List<Kunde> GetKunde()

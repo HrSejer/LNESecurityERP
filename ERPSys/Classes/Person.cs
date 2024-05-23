@@ -8,6 +8,7 @@ namespace ERPSys
 {
     public class Person : Addresse
     {
+        public int PersonId { get; set; }
         public string Navn { get; set; }
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
@@ -20,8 +21,9 @@ namespace ERPSys
 
         }
 
-        public Person(string navn, string fornavn, string efternavn, int tlfnummer, string mail, int addressId, string Address) : base(addressId, Address)
+        public Person(int personid, string navn, string fornavn, string efternavn, int tlfnummer, string mail, int addressId, string Address) : base(addressId, Address)
         {
+            PersonId = personid;
             Navn = navn;
             Fornavn = fornavn;
             Efternavn = efternavn;
