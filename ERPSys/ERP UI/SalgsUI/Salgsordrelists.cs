@@ -33,7 +33,7 @@ namespace ERPSys
                 Console.WriteLine("Tryk F2 for at redigere Salgsordre");
 
                 salgsordreList.AddKey(ConsoleKey.F5, DeleteSalgsordre);
-                Console.WriteLine("Tryk F5 for at Fjerne Salgsordre");
+                Console.WriteLine("Tryk F5 for at fjerne Salgsordre");
 
                 salgsordreList.AddColumn("Ordrenummer", "Ordrenummer");
                 salgsordreList.AddColumn("Dato", "Dato");
