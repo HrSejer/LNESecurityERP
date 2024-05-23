@@ -23,7 +23,7 @@ namespace ERPSys
 
             edit.TextBox("Fornavn", nameof(kunde.Fornavn));
             edit.TextBox("Efternavn", nameof(kunde.Efternavn));
-            edit.IntBox("TLF nummer", nameof(kunde.Tlfnummer));
+            edit.IntBox("Tlfnummer", nameof(kunde.Tlfnummer));
             edit.TextBox("Mail", nameof(kunde.Mail));
             edit.TextBox("Addresse",nameof(kunde.Addresser));
             edit.TextBox("Dato", nameof(kunde.Dato));

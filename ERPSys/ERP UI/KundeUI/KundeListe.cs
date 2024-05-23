@@ -27,13 +27,13 @@ namespace ERPSys
                 }
 
                 kundeList.AddKey(ConsoleKey.F1, NewCompany);
-                Console.WriteLine("Tryk F1 for at lave en ny virksomhed");
+                Console.WriteLine("Tryk F1 for at lave en ny kunde");
 
                 kundeList.AddKey(ConsoleKey.F2, editKunde);
-                Console.WriteLine("Tryk F2 for at redigere virksomhed");
+                Console.WriteLine("Tryk F2 for at redigere kunde");
 
                 kundeList.AddKey(ConsoleKey.F5, DeleteCompany);
-                Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
+                Console.WriteLine("Tryk F5 for at fjerne en kunde");
 
                 //used to tell it what data from the class it should use
                 kundeList.AddColumn("Kundenummer", "KundeNummer");

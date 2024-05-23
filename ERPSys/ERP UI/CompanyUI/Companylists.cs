@@ -32,7 +32,7 @@ namespace ERPSys
                 Console.WriteLine("Tryk F2 for at redigere virksomhed");
 
                 companylist.AddKey(ConsoleKey.F5, DeleteCompany);
-                Console.WriteLine("Tryk F5 for at Fjerne virksomheder");
+                Console.WriteLine("Tryk F5 for at fjerne virksomheder");
 
                 //used to tell it what data from the class it should use in the order of
                 //displaying name then the Code name
