@@ -25,7 +25,7 @@ namespace ERPSys
             editor.TextBox("Husnummer", nameof(company.Husnummer));
             editor.TextBox("Vej", nameof(company.Vej));
             editor.TextBox("Postnummer", nameof(company.Postnummer));
-            editor.SelectBox("Currency", nameof(company.Currency));
+            editor.SelectBox("Currency", nameof(company.Money));
             editor.AddOption("Currency", "DKK", Currency.Valuta.DKK);
             editor.AddOption("Currency", "USD", Currency.Valuta.USD);
             editor.AddOption("Currency", "EURO", Currency.Valuta.EURO);

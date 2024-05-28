@@ -17,7 +17,7 @@ namespace ERPSys
         public string Vej { get; set; } = "";
         public string Husnummer { get; set; } = "";
         public string Postnummer { get; set; } = "";
-        public Currency.Valuta Currency { get; set; } 
+        public Currency.Valuta Money { get; set; } 
                                                
         public Company() { }
         public Company(int id, string companyName, string vej, string husnummer, string postnummer, string by, string land, Currency.Valuta currency)
@@ -29,7 +29,7 @@ namespace ERPSys
             Vej = vej;
             Husnummer = husnummer;
             Postnummer = postnummer;
-            Currency = currency;
+            Money = currency;
         }
     }
 }
