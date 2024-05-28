@@ -67,8 +67,6 @@ namespace ERPSys
                                 Enhed = Enum.TryParse<Enhed>(reader.GetString(reader.GetOrdinal("Enhed")), out var enhed) ? enhed : default,
                                 Avance = reader.GetDecimal(reader.GetOrdinal("Avance")),
                                 Fortjeneste = reader.GetDecimal(reader.GetOrdinal("Fortjeneste")),
-
-
                             });
                         }
                     }
@@ -144,53 +142,6 @@ namespace ERPSys
 
                     cmd.ExecuteNonQuery();
                 }
-            }
-        }
-        public List<Produkt> GetProdukt()
-        {
-            List<Produkt> produktCopy = new();
-            produktCopy.AddRange(produktlist);
-            return produktCopy;
-        }
-
-        List<Produkt> produktlist = new()
-        {
-           // new Produkt{ProduktId = 1, Varenummer = 1, Navn = "Computer", Beskrivelse = "Kan Spille", Salgspris = 2500, Indkoebspris = 9999, Lokation = "ff3g", Antalpaalager = 2, Enhed = Enhed.Styk, Avance = 25, Fortjeneste = 2000 }
-        };
-        public void UpdateProdukt(Produkt produkt)
-        {
-            if (produkt.ProduktId == 0)
-            {
-                return;
-            }
-
-            for (var i = 0; i < produktlist.Count; i++)
-            {
-                if (produktlist[i].ProduktId == produkt.ProduktId)
-                {
-                    produktlist[i] = produkt;
-                }
-            }
-        }
-        public void InsertProdukt(Produkt produkt)
-        {
-            if (produkt.ProduktId != 0)
-            {
-                return;
-            }
-            produkt.ProduktId = produktlist.Count + 1;
-            produktlist.Add(produkt);
-        }
-
-        public void DeleteProdukt(Produkt produkt)
-        {
-            if (produkt.ProduktId == 0)
-            {
-                return;
-            }
-            if (produktlist.Contains(produkt))
-            {
-                produktlist.Remove(produkt);
             }
         }
     }
