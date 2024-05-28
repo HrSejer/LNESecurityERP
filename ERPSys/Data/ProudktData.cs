@@ -84,11 +84,21 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string Query = "INSERT INTO Produkt VALUES (@ProduktId)";
+                string Query = "INSERT INTO Produkt (Varenummer, Navn, Beskrivelse, Salgspris, Indkoebspris, Lokation, Antalpaalager, Enhed, Avance, Fortjeneste)" 
+                    + " VALUES (@Varenummer, @Navn, @Beskrivelse, @Salgspris, @Indkoebspris, @Lokation, @Antalpaalager, @Enhed, @Avance, @Fortjeneste)";
 
                 using (SqlCommand cmd = new SqlCommand(Query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@ProduktId", produkt.ProduktId);
+                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+                    cmd.Parameters.AddWithValue("@Navn", produkt.Navn);
+                    cmd.Parameters.AddWithValue("@Beskrivelse", produkt.Beskrivelse);
+                    cmd.Parameters.AddWithValue("@Salgspris", produkt.Salgspris);
+                    cmd.Parameters.AddWithValue("@Indkoebspris", produkt.Indkoebspris);
+                    cmd.Parameters.AddWithValue("@Lokation", produkt.Lokation);
+                    cmd.Parameters.AddWithValue("@Antalpaalager", produkt.Antalpaalager);
+                    cmd.Parameters.AddWithValue("@Enhed", produkt.Enhed);
+                    cmd.Parameters.AddWithValue("@Avance", produkt.Avance);
+                    cmd.Parameters.AddWithValue("@Fortjeneste", produkt.Fortjeneste);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -100,11 +110,21 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string query = "UPDATE Produkt SET ProduktId = @ProduktId";
+                string query = "UPDATE Produkt SET Varenummer = @Varenummer, Navn = @Navn, Beskrivelse = @Beskrivelse, Salgspris = @Salgspris, Indkoebspris = @Indkoebspris, Lokation = @Lokation, Antalpaalager = @Antalpaalager, Enhed = @Enhed, Avance = @Avance, Fortjeneste = @Fortjeneste WHERE ProduktId = @ProduktId";
 
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@ProduktId", produkt.ProduktId);
+                    cmd.Parameters.AddWithValue("@Varenummer", produkt.Varenummer);
+                    cmd.Parameters.AddWithValue("@Navn", produkt.Navn);
+                    cmd.Parameters.AddWithValue("@Beskrivelse", produkt.Beskrivelse);
+                    cmd.Parameters.AddWithValue("@Salgspris", produkt.Salgspris);
+                    cmd.Parameters.AddWithValue("@Indkoebspris", produkt.Indkoebspris);
+                    cmd.Parameters.AddWithValue("@Lokation", produkt.Lokation);
+                    cmd.Parameters.AddWithValue("@Antalpaalager", produkt.Antalpaalager);
+                    cmd.Parameters.AddWithValue("@Enhed", produkt.Enhed);
+                    cmd.Parameters.AddWithValue("@Avance", produkt.Avance);
+                    cmd.Parameters.AddWithValue("@Fortjeneste", produkt.Fortjeneste);
 
                     cmd.ExecuteNonQuery();
                 }
