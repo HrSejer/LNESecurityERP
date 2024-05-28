@@ -41,7 +41,7 @@ namespace ERPSys
 
         public void ProduktAlle()
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 string query = "SELECT ProduktId, Navn FROM Produkt";

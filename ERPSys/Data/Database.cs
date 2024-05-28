@@ -19,5 +19,16 @@ namespace ERPSys
         {
             ConnectionString = "Connectionstring";
         }
+        private SqlConnection getConnection()
+        {
+            SqlConnectionStringBuilder sb = new();
+            sb.DataSource = "docker.data.techcollege.dk";
+            sb.InitialCatalog = "H1PD040124_Gruppe2";
+            sb.UserID = "H1PD040124_Gruppe2";
+            sb.Password = "H1PD040124_Gruppe2";
+            string connectionString = sb.ToString();
+            SqlConnection connection = new SqlConnection(connectionString);
+            return connection;
+        }
     }
 }
