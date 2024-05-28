@@ -64,7 +64,7 @@ namespace ERPSys
                                 Indkoebspris = reader.GetDecimal(reader.GetOrdinal("Indkoebspris")),
                                 Lokation = reader.GetString(reader.GetOrdinal("Lokation")),
                                 Antalpaalager = reader.GetDecimal(reader.GetOrdinal("Antalpaalager")),
-                                //Enhed = reader.GetString(reader.GetOrdinal("Lokation")),
+                                Enhed = Enum.TryParse<Enhed>(reader.GetString(reader.GetOrdinal("Enhed")), out var enhed) ? enhed : default,
                                 Avance = reader.GetDecimal(reader.GetOrdinal("Avance")),
                                 Fortjeneste = reader.GetDecimal(reader.GetOrdinal("Fortjeneste")),
 
@@ -100,7 +100,7 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string query = "UPDATE Produkt SET ProduktId = @ProdukId";
+                string query = "UPDATE Produkt SET ProduktId = @ProduktId";
 
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
@@ -135,7 +135,7 @@ namespace ERPSys
 
         List<Produkt> produktlist = new()
         {
-            new Produkt{ProduktId = 1, Varenummer = 1, Navn = "Computer", Beskrivelse = "Kan Spille", Salgspris = 2500, Indkoebspris = 9999, Lokation = "ff3g", Antalpaalager = 2, Enhed = Enhed.Styk, Avance = 25, Fortjeneste = 2000 }
+           // new Produkt{ProduktId = 1, Varenummer = 1, Navn = "Computer", Beskrivelse = "Kan Spille", Salgspris = 2500, Indkoebspris = 9999, Lokation = "ff3g", Antalpaalager = 2, Enhed = Enhed.Styk, Avance = 25, Fortjeneste = 2000 }
         };
         public void UpdateProdukt(Produkt produkt)
         {
