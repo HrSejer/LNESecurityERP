@@ -12,7 +12,7 @@ namespace ERPSys
         //note here was a NULL warning may be Null
         public Produkt? ProduktId(Produkt ProduktId)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = getConnection())
             {
                 connection.Open();
 
@@ -41,7 +41,7 @@ namespace ERPSys
 
         public void ProduktAlle()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = getConnection())
             {
                 connection.Open();
                 string query = "SELECT ProduktId, Navn FROM Produkt";
@@ -70,7 +70,7 @@ namespace ERPSys
 
         public void IndsaetProdukt(Produkt produkt)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = getConnection())
             {
                 connection.Open();
 
@@ -86,7 +86,7 @@ namespace ERPSys
         }
         public void OpdaterProdukt(Produkt produkt)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = getConnection())
             {
                 connection.Open();
 
@@ -102,7 +102,7 @@ namespace ERPSys
         }
         public void SletProdukt(Produkt produkt)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using (SqlConnection connection = getConnection())
             {
                 connection.Open();
 
