@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -26,6 +26,7 @@ namespace ERPSys
             sb.InitialCatalog = "H1PD040124_Gruppe2";
             sb.UserID = "H1PD040124_Gruppe2";
             sb.Password = "H1PD040124_Gruppe2";
+            sb.TrustServerCertificate = true;
             string connectionString = sb.ToString();
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;

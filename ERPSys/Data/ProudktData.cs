@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,12 +39,14 @@ namespace ERPSys
             return null;
         }
 
-        public void ProduktAlle()
+        public List<Produkt> GetAllProdukter()
         {
+            List<Produkt> produkter = new List<Produkt>();
+
             using (SqlConnection connection = getConnection())
             {
                 connection.Open();
-                string query = "SELECT ProduktId, Navn FROM Produkt";
+                string query = "SELECT ProduktId, Varenummer, Navn, Beskrivelse, Salgspris, Indkoebspris, Lokation, Antalpaalager, Enhed, Avance, Fortjeneste FROM Produkt";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -52,20 +54,28 @@ namespace ERPSys
                     {
                         while (reader.Read())
                         {
-                            int produktId = reader.GetInt32(reader.GetOrdinal("ProduktId"));
-                            string navn = reader.GetString(reader.GetOrdinal("Name"));
-
-                            Produkt produkt = new Produkt
+                            produkter.Add(new Produkt
                             {
-                                ProduktId = produktId,
-                                Navn = navn
-                            };
+                                ProduktId = reader.GetInt32(reader.GetOrdinal("ProduktId")),
+                                Varenummer = reader.GetInt32(reader.GetOrdinal("Varenummer")),
+                                Navn = reader.GetString(reader.GetOrdinal("Navn")),
+                                Beskrivelse = reader.GetString(reader.GetOrdinal("Beskrivelse")),
+                                Salgspris = reader.GetDecimal(reader.GetOrdinal("Salgspris")),
+                                Indkoebspris = reader.GetDecimal(reader.GetOrdinal("Indkoebspris")),
+                                Lokation = reader.GetString(reader.GetOrdinal("Lokation")),
+                                Antalpaalager = reader.GetDecimal(reader.GetOrdinal("Antalpaalager")),
+                                //Enhed = reader.GetString(reader.GetOrdinal("Lokation")),
+                                Avance = reader.GetDecimal(reader.GetOrdinal("Avance")),
+                                Fortjeneste = reader.GetDecimal(reader.GetOrdinal("Fortjeneste")),
 
-                            Console.WriteLine($"ID: {produkt.ProduktId}, Name: {produkt.Navn}");
+
+                            });
                         }
                     }
                 }
             }
+
+            return produkter;
         }
 
         public void IndsaetProdukt(Produkt produkt)

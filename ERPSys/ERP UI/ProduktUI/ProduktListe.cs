@@ -17,7 +17,7 @@ namespace ERPSys
             {
                 ListPage<Produkt> produktList = new();
 
-                var produkts = database.GetProdukt();
+                var produkts = database.GetAllProdukter();
                 foreach (Produkt produkt in produkts)
                 {
                     produktList.Add(produkt);
