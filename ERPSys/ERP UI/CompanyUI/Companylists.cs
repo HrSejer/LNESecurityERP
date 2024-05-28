@@ -34,11 +34,10 @@ namespace ERPSys
                 companylist.AddKey(ConsoleKey.F5, DeleteCompany);
                 Console.WriteLine("Tryk F5 for at fjerne virksomheder");
 
-                //used to tell it what data from the class it should use in the order of
-                //displaying name then the Code name
+                //adds ´columns to desplay and the info it shows
                 companylist.AddColumn("Company Name", "CompanyName");
                 companylist.AddColumn("Country", "Land");
-                companylist.AddColumn("Currency", "Currency");
+                companylist.AddColumn("Currency", nameof(Company.Money));
 
                 Company selected = companylist.Select();
                 if (selected != null)
