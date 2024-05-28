@@ -67,7 +67,7 @@ namespace ERPSys
 
             void DeleteProdukt(Produkt produkt)
             {
-                Database.Instance.DeleteProdukt(produkt);
+                Database.Instance.SletProdukt(produkt);
                 Screen.Clear(this);
                 Draw();
             }
