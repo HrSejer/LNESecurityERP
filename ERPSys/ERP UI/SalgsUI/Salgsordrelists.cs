@@ -19,7 +19,7 @@ namespace ERPSys
             {
                 ListPage<Salgsordrehoved> salgsordreList = new();
 
-                var salgsordres = database.GetSalgsordre();
+                var salgsordres = database.SalgsordreAlle();
                 foreach (Salgsordrehoved salgsordrehoved in salgsordres)
                 {
                     salgsordreList.Add(salgsordrehoved);
@@ -34,6 +34,7 @@ namespace ERPSys
                 salgsordreList.AddKey(ConsoleKey.F5, DeleteSalgsordre);
                 Console.WriteLine("Tryk F5 for at fjerne Salgsordre");
 
+                salgsordreList.AddColumn("OrdreId", "OrdreId");
                 salgsordreList.AddColumn("Ordrenummer", "Ordrenummer");
                 salgsordreList.AddColumn("Dato", "Dato");
                 salgsordreList.AddColumn("Kundenummer", "Kundenummer");
@@ -56,7 +57,7 @@ namespace ERPSys
         }
         void DeleteSalgsordre(Salgsordrehoved salgsordrehoved)
         {
-            Database.Instance.DeleteSalgsordre(salgsordrehoved);
+            Database.Instance.SletSalgsordre(salgsordrehoved);
             Screen.Clear(this);
             Draw();
         }

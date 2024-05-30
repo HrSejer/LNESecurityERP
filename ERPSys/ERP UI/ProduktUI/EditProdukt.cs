@@ -39,11 +39,11 @@ namespace ERPSys
             {
                 if (produkt.ProduktId != 0)
                 {
-                    Database.Instance.UpdateProdukt(produkt);
+                    Database.Instance.OpdaterProdukt(produkt);
                 }
                 else if (produkt.ProduktId == 0)
                 {
-                    Database.Instance.InsertProdukt(produkt);
+                    Database.Instance.IndsaetProdukt(produkt);
                 }
 
             }

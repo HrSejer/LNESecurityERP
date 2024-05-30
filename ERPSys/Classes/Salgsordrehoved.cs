@@ -16,6 +16,7 @@ namespace ERPSys
     }
     public class Salgsordrehoved
     {
+        public int OrdreId { get; set; }
         public int Ordrenummer { get; set; }
         public DateTime Oprettelsestidspunkt { get; set; }
         public DateTime Gennemførelsestidspunkt { get; set; }
@@ -23,18 +24,21 @@ namespace ERPSys
         public Tilstand Tilstand { get; set; }
 
         List<string> Ordrelinjer = new List<string>();
-        public int Ordrebeløb { get; set; }
+        public decimal Ordrebeløb { get; set; }
         public string Kundenavn { get; set; }
         public DateTime Dato { get; set; }
         
-        public Salgsordrehoved(int ordreNummer, DateTime dato, int kundeNummer, string kundeNavn, int ordreBeløb, Tilstand tilstand)
+        public Salgsordrehoved(int ordreId, int ordreNummer, DateTime dato, int kundeNummer, string kundeNavn, decimal ordreBeløb, Tilstand tilstand, DateTime oprettelsestidspunkt, DateTime gennemførelsestidspunkt)
         {
+            OrdreId = ordreId;
             Ordrenummer = ordreNummer;
             Dato = dato;
             Kundenummer = kundeNummer;
             Kundenavn = kundeNavn;
             Ordrebeløb = ordreBeløb;
             Tilstand = tilstand;
+            Oprettelsestidspunkt = oprettelsestidspunkt;
+            Gennemførelsestidspunkt = gennemførelsestidspunkt;
         }
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Salgsordrehoved() { }
