@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERPSys", "ERPSys\ERPSys.csproj", "{5101F5D8-445A-4FFE-ABCD-F0371F242803}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Test1\Tests.csproj", "{21B49AF1-7623-40B4-ABEC-2C4F50DEE703}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{93937A41-1639-4188-8057-FE10996986CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5101F5D8-445A-4FFE-ABCD-F0371F242803}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5101F5D8-445A-4FFE-ABCD-F0371F242803}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5101F5D8-445A-4FFE-ABCD-F0371F242803}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21B49AF1-7623-40B4-ABEC-2C4F50DEE703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21B49AF1-7623-40B4-ABEC-2C4F50DEE703}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21B49AF1-7623-40B4-ABEC-2C4F50DEE703}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21B49AF1-7623-40B4-ABEC-2C4F50DEE703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93937A41-1639-4188-8057-FE10996986CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93937A41-1639-4188-8057-FE10996986CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93937A41-1639-4188-8057-FE10996986CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93937A41-1639-4188-8057-FE10996986CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
