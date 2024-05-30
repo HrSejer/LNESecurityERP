@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
 
-namespace ERPSys.Data
+namespace ERPSys
 {
     public class Opening_UI:Screen
     {

@@ -1,6 +1,4 @@
-﻿using ERPSys;
-using ERPSys.Data;
-using TECHCOOL.UI;
+﻿using TECHCOOL.UI;
 
 namespace ERPSys
 { 

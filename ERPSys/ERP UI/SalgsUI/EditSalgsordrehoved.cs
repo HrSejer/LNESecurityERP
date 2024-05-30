@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
 
-namespace ERPSys.ERP_UI
+namespace ERPSys
 {
     public class EditSalgsordrehoved(Salgsordrehoved salgsordrehoved) : Screen 
     {
