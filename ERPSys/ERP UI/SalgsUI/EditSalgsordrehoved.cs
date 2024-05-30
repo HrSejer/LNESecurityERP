@@ -20,8 +20,8 @@ namespace ERPSys.ERP_UI
             Form<Salgsordrehoved> editor = new();
 
             editor.TextBox("Ordrenummer", nameof(salgsordrehoved.Ordrenummer));
-            editor.TextBox("Dato", nameof(salgsordrehoved.Dato));
             editor.TextBox("Kundenummer", nameof(salgsordrehoved.Kundenummer));
+            editor.TextBox("Dato", nameof(salgsordrehoved.Dato));
             editor.TextBox("Kundenavn", nameof(salgsordrehoved.Kundenavn));
             editor.TextBox("Ordrebeløb", nameof(salgsordrehoved.Ordrebeløb));
             editor.SelectBox("Tilstand", nameof(salgsordrehoved.Tilstand));
@@ -30,16 +30,18 @@ namespace ERPSys.ERP_UI
             editor.AddOption("Tilstand", "Bekræftet", Tilstand.Bekræftet);
             editor.AddOption("Tilstand", "Pakket", Tilstand.Pakket);
             editor.AddOption("Tilstand", "Færdig", Tilstand.Færdig);
+            editor.TextBox("Oprettelsestidspunkt", nameof(salgsordrehoved.Oprettelsestidspunkt));
+            editor.TextBox("Gennemførelsestidspunkt", nameof(salgsordrehoved.Gennemførelsestidspunkt));
 
             if (editor.Edit(salgsordrehoved))
             {
                 if (salgsordrehoved.Ordrenummer != 0)
                 {
-                    Database.Instance.UpdateSalgsordrehoved(salgsordrehoved);
+                    Database.Instance.OpdaterSalgsordre(salgsordrehoved);
                 }
                 else if (salgsordrehoved.Ordrenummer == 0)
                 {
-                    Database.Instance.InsertSalgsordrehoved(salgsordrehoved);
+                    Database.Instance.IndsaetSalgsordre(salgsordrehoved);
                 }
 
             }
