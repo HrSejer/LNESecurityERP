@@ -11,15 +11,14 @@ namespace ERPSys
 {
     public partial class Database
     {
-        
-
         public List<Company> GetCompanies()
         {
             List<Company> CompanyList = new();
             using (SqlConnection connection = getConnection())
             {
                 connection.Open();
-                string Query = "SELECT CompanyId, CompanyName, CompanyCountry, CompanyCity, CompanyStreet, CompanyHousnumber, CompanyPostalCode, CompanyCurrency FROM Company";
+                string Query = "SELECT CompanyId, CompanyName, CompanyCountry, CompanyCity, CompanyStreet, CompanyHousnumber, " +
+                               "CompanyPostalCode, CompanyCurrency FROM Company";
                 using (SqlCommand cmd = new(Query, connection))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())

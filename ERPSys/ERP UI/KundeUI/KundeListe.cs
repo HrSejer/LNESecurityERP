@@ -40,8 +40,9 @@ namespace ERPSys
                 kundeList.AddColumn("Navn", "Navn");
                 kundeList.AddColumn("Tlfnummer", "Tlfnummer");
                 kundeList.AddColumn("Email", "Mail");
-
                 
+
+
                 Kunde selected = kundeList.Select();
                 if (selected != null)
                 {
