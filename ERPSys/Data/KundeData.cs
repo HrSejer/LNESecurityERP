@@ -10,30 +10,27 @@ namespace ERPSys
     public partial class Database
     {
         public List<Kunde> GetKunde()
-        {  
+        {
             List<Kunde> kundeList = new();
             using (SqlConnection connection = getConnection())
             {
                 connection.Open();
-                string Query = "SELECT"+ 
-                        "p.PersonId,"+
-                        "p.Navn,"+
-                        "p.Fornavn,"+
-                        "p.Efternavn,"+
-                        "p.Tlfnummer,"+
-                        "p.Mail,"+
-                        "a.AddressId,"+
-                        "a.Addresser,"+
-                        "k.KundeNummer,"+
-                        "k.KundeDate"+
-                        "FROM"+
-                        "Person p"+
-                        "INNER JOIN "+
-                        "Addresse a ON p.AddressId = a.AddressId"+
-                        "INNER JOIN"+
-                        "Kunde k ON p.PersonId = k.PersonId";
+                string Query = "SELECT " +
+                        "p.PersonId, " +
+                        "p.Navn, " +
+                        "p.Fornavn, " +
+                        "p.Efternavn, " +
+                        "p.Tlfnummer, " +
+                        "p.Mail, " +
+                        "a.AddressId, " +
+                        "a.Addresser, " +
+                        "k.KundeNummer, " +
+                        "k.KundeDate " +
+                        "FROM Person p " +
+                        "INNER JOIN Addresse a ON p.AddressId = a.AddressId " +
+                        "INNER JOIN Kunde k ON p.PersonId = k.PersonId";
 
-                using (SqlCommand cmd = new(Query, connection))
+                using (SqlCommand cmd = new SqlCommand(Query, connection))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -59,6 +56,7 @@ namespace ERPSys
             }
             return kundeList;
         }
+
         public void UpdateKunde(Kunde kunde)
         {
             if (kunde.KundeNummer == 0)
@@ -69,31 +67,32 @@ namespace ERPSys
             using (SqlConnection connection = getConnection())
             {
                 connection.Open();
-                string query = "UPDATE Kunde"+
-                    "SET"+
-                    "KundeDate = @KundeDate,"+
-                    "AddressId = @AddressId,"+
-                    "PersonId = @PersonId"+
-                    "WHERE"+
-                    "KundeNummer = @KundeNummer;"+
+                string query =
+                    "UPDATE Kunde " +
+                    "SET " +
+                    "KundeDate = @KundeDate, " +
+                    "AddressId = @AddressId, " +
+                    "PersonId = @PersonId " +
+                    "WHERE " +
+                    "KundeNummer = @KundeNummer; " +
 
-                    "UPDATE Person"+
-                    "SET"+
-                    "Navn = @Navn,"+
-                    "Fornavn = @Fornavn,"+
-                    "Efternavn = @Efternavn,"+
-                    "Tlfnummer = @Tlfnummer,"+
-                    "Mail = @Mail"+
-                    "WHERE"+
-                    "PersonId = @PersonId;"+
+                    "UPDATE Person " +
+                    "SET " +
+                    "Navn = @Navn, " +
+                    "Fornavn = @Fornavn, " +
+                    "Efternavn = @Efternavn, " +
+                    "Tlfnummer = @Tlfnummer, " +
+                    "Mail = @Mail " +
+                    "WHERE " +
+                    "PersonId = @PersonId; " +
 
-                    "UPDATE Addresse"+
-                    "SET"+
-                    "Addresser = @Addresser"+
-                    "WHERE"+ 
+                    "UPDATE Addresse " +
+                    "SET " +
+                    "Addresser = @Addresser " +
+                    "WHERE " +
                     "AddressId = @AddressId;";
 
-                using (SqlCommand cmd = new(query, connection))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@KundeNummer", kunde.KundeNummer);
                     cmd.Parameters.AddWithValue("@KundeDate", kunde.Dato.ToString());
@@ -111,6 +110,7 @@ namespace ERPSys
                 connection.Close();
             }
         }
+
 
         public void InsertKunde(Kunde kunde)
         {
