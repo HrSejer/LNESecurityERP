@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ERPSys.Addresse" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Addresse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Company" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASQAAAAAAAICAAAAAAAAAAAAAAAAAAAkAAAAAAAAA=</HashCode>
+      <FileName>Classes\Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Currency" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Currency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Kunde" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Kunde.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Person" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAEAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAQAAAAI=</HashCode>
+      <FileName>Classes\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Produkt" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAAAAAAAAAIAEAEAAAIAAgAgAAQAIBAgAAAAAIAAAAA=</HashCode>
+      <FileName>Classes\Produkt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Salgsordrehoved" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAASAAAAAAAAAAABAgAAAAgAAAAAAARAAAABAEAAA=</HashCode>
+      <FileName>Classes\Salgsordrehoved.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Database" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgAAAIAAQAAAAQAAAKACAAKAgkIQGAAAAAAAEA=</HashCode>
+      <FileName>Data\CompanyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Companylists" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkBAAAAEAAAAAAAAAAEAAAAAAIAAAAA=</HashCode>
+      <FileName>ERP UI\CompanyUI\Companylists.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.EditCompany" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\CompanyUI\EditCompany.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.SelectedCompany" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\CompanyUI\SelectedCompany.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.KundeEdit" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>ERP UI\KundeUI\KundeEdit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.KundeListe" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\KundeUI\KundeListe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.SelectedKunde" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\KundeUI\SelectedKunde.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.EditProdukt" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\ProduktUI\EditProdukt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.ProduktListe" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\ProduktUI\ProduktListe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.SelectedProdukt" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\ProduktUI\SelectedProdukt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.EditSalgsordrehoved" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\SalgsUI\EditSalgsordrehoved.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.SalgsordreLists" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkBAAIAAAAAAAAAAAAAAAABAAACAAAA=</HashCode>
+      <FileName>ERP UI\SalgsUI\Salgsordrelists.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.SelectedSalgsordre" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\SalgsUI\SelectedSalgsordre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.ERP_Menu" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\ERP_Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Opening_UI" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ERP UI\Opening UI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ERPSys.Program" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ERP UI\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ERPSys.Enhed" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAEAAA=</HashCode>
+      <FileName>Classes\Produkt.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ERPSys.Tilstand" Collapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAQAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAACA=</HashCode>
+      <FileName>Classes\Salgsordrehoved.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
