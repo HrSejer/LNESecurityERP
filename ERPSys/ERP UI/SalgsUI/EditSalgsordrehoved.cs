@@ -35,6 +35,11 @@ namespace ERPSys
 
             if (editor.Edit(salgsordrehoved))
             {
+                if (string.IsNullOrEmpty(salgsordrehoved.Kundenavn))
+                {
+                    Console.WriteLine("JSalgs Order not saved since missing kundeNavn");
+                    return;
+                }
                 if (salgsordrehoved.Ordrenummer != 0)
                 {
                     Database.Instance.OpdaterSalgsordre(salgsordrehoved);

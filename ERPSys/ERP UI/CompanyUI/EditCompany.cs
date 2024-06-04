@@ -40,7 +40,7 @@ namespace ERPSys
                     string.IsNullOrEmpty(company.Vej) ||
                     string.IsNullOrEmpty(company.Postnummer))
                 {
-                    Console.WriteLine("JKunde not saved since missing data");
+                    Console.WriteLine("JCompany not saved since missing data");
                     return;
                 }
 
@@ -52,11 +52,11 @@ namespace ERPSys
                 {
                     Database.Instance.InsertCompany(company);
                 }
-                Console.WriteLine("Company saved");
+                Console.WriteLine("JCompany saved");
             }
             else
             {
-                Console.WriteLine("Company not saved");
+                Console.WriteLine("JCompany not saved");
             }
         }
     }
