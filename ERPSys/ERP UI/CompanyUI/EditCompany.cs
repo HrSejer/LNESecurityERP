@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
+using static Google.Protobuf.WellKnownTypes.Field.Types;
 
 namespace ERPSys
 {
@@ -33,6 +34,16 @@ namespace ERPSys
 
             if (editor.Edit(company))
             {
+                if (string.IsNullOrEmpty(company.CompanyName) ||
+                    string.IsNullOrEmpty(company.Land) ||
+                    string.IsNullOrEmpty(company.Husnummer) ||
+                    string.IsNullOrEmpty(company.Vej) ||
+                    string.IsNullOrEmpty(company.Postnummer))
+                {
+                    Console.WriteLine("JKunde not saved since missing data");
+                    return;
+                }
+
                 if (company.Id != 0)
                 {
                     Database.Instance.UpdateCompany(company);
