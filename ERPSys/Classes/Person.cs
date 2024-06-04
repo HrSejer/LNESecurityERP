@@ -12,7 +12,7 @@ namespace ERPSys
         public string Navn { get; set; }
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
-        public int Tlfnummer { get; set; }
+        public string Tlfnummer { get; set; }
         public string Mail { get; set; }
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Person(): base()
@@ -21,7 +21,7 @@ namespace ERPSys
 
         }
 
-        public Person(int personid, string navn, string fornavn, string efternavn, int tlfnummer, string mail)
+        public Person(int personid, string navn, string fornavn, string efternavn, string tlfnummer, string mail)
         {
             PersonId = personid;
             Navn = navn;

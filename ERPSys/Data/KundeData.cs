@@ -42,7 +42,7 @@ namespace ERPSys
                                 Navn = reader.GetString(reader.GetOrdinal("Navn")),
                                 Fornavn = reader.GetString(reader.GetOrdinal("Fornavn")),
                                 Efternavn = reader.GetString(reader.GetOrdinal("Efternavn")),
-                                Tlfnummer = reader.GetInt32(reader.GetOrdinal("Tlfnummer")),
+                                Tlfnummer = reader.GetString(reader.GetOrdinal("Tlfnummer")),
                                 Mail = reader.GetString(reader.GetOrdinal("Mail")),
                                 AddressId = reader.GetInt32(reader.GetOrdinal("AddressId")),
                                 Addresser = reader.GetString(reader.GetOrdinal("Addresser")),

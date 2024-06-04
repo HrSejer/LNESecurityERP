@@ -16,4 +16,8 @@
     <PackageReference Include="TECHCOOL" Version="1.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Diagram\" />
+  </ItemGroup>
+
 </Project>
