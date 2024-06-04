@@ -33,7 +33,6 @@ namespace ERPSys
                 salgsordreList.AddKey(ConsoleKey.F5, DeleteSalgsordre);
                 Console.WriteLine("Tryk F5 for at fjerne Salgsordre");
 
-                salgsordreList.AddColumn("OrdreId", "OrdreId");
                 salgsordreList.AddColumn("Ordrenummer", "Ordrenummer");
                 salgsordreList.AddColumn("Dato", "Dato");
                 salgsordreList.AddColumn("Kundenummer", "Kundenummer");

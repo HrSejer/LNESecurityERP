@@ -44,7 +44,7 @@ namespace ERPSys
             using (SqlConnection connection = getConnection())
             {
                 connection.Open();
-                string query = "SELECT OrdreId, Ordrenummer, Dato, Kundenummer, Kundenavn, Ordrebeløb, Tilstand, Oprettelsestidspunkt, Gennemførelsestidspunkt FROM Salgsordre";
+                string query = "SELECT Ordrenummer, Dato, Kundenummer, Kundenavn, Ordrebeløb, Tilstand, Oprettelsestidspunkt, Gennemførelsestidspunkt FROM Salgsordre";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -53,16 +53,14 @@ namespace ERPSys
                         while (reader.Read())
                         {
                             salgsordre.Add(new Salgsordrehoved
-                             {
-                                OrdreId = reader.GetInt32(reader.GetOrdinal("OrdreId")),
+                            {
                                 Ordrenummer = reader.GetInt32(reader.GetOrdinal("Ordrenummer")),
-                                Dato = reader.GetDateTime(reader.GetOrdinal("Dato")),
-                                Kundenummer = reader.GetInt32(reader.GetOrdinal("Kundenummer")),
+                                Dato = DateTime.Parse(reader.GetString(reader.GetOrdinal("Dato"))),                                Kundenummer = reader.GetInt32(reader.GetOrdinal("Kundenummer")),
                                 Kundenavn = reader.GetString(reader.GetOrdinal("Kundenavn")),
                                 Ordrebeløb = reader.GetDecimal(reader.GetOrdinal("Ordrebeløb")),
                                 Tilstand = Enum.TryParse<Tilstand>(reader.GetString(reader.GetOrdinal("Tilstand")), out var tilstand) ? tilstand : default,
-                                Oprettelsestidspunkt = reader.GetDateTime(reader.GetOrdinal("Oprettelsestidspunkt")),
-                                Gennemførelsestidspunkt = reader.GetDateTime(reader.GetOrdinal("Gennemførelsestidspunkt")),
+                                Oprettelsestidspunkt = DateTime.Parse(reader.GetString(reader.GetOrdinal("Oprettelsestidspunkt"))),
+                                Gennemførelsestidspunkt = DateTime.Parse(reader.GetString(reader.GetOrdinal("Gennemførelsestidspunkt"))),
                             });
                         }
                     }
@@ -77,19 +75,18 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string Query = "INSERT INTO Salgsordre (Ordrenummer, Dato, Kundenummer, Kundenavn, Ordrebeløb, Tilstand)" + 
-                    "VALUES (@Ordrenummer, @Dato, @Kundenummer, @Kundenavn, @Ordrebeløb, @Tilstand)";
+                string Query = "INSERT INTO Salgsordre (Kundenummer, Dato, Kundenavn, Ordrebeløb, Tilstand, Oprettelsestidspunkt, Gennemførelsestidspunkt)" +
+                    "VALUES (@Kundenummer, @Dato, @Kundenavn, @Ordrebeløb, @Tilstand, @Oprettelsestidspunkt, @Gennemførelsestidspunkt)";
 
                 using (SqlCommand cmd = new SqlCommand(Query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
                     cmd.Parameters.AddWithValue("@Kundenummer", Salgsordre.Kundenummer);
-                    cmd.Parameters.AddWithValue("@Dato", Salgsordre.Dato);
+                    cmd.Parameters.AddWithValue("@Dato", Salgsordre.Dato.ToString());
                     cmd.Parameters.AddWithValue("@Kundenavn", Salgsordre.Kundenavn);
                     cmd.Parameters.AddWithValue("@Ordrebeløb", Salgsordre.Ordrebeløb);
                     cmd.Parameters.AddWithValue("@Tilstand", Salgsordre.Tilstand);
-                    cmd.Parameters.AddWithValue("@Oprettelsestidspunkt", Salgsordre.Oprettelsestidspunkt);
-                    cmd.Parameters.AddWithValue("@Gennemførelsestidspunkt", Salgsordre.Gennemførelsestidspunkt);
+                    cmd.Parameters.AddWithValue("@Oprettelsestidspunkt", Salgsordre.Oprettelsestidspunkt.ToString());
+                    cmd.Parameters.AddWithValue("@Gennemførelsestidspunkt", Salgsordre.Gennemførelsestidspunkt.ToString());
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -100,20 +97,26 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string query = "UPDATE Salgsordre SET Ordrenummer = @Ordrenummer, Kundenummer = @Kundenummer, Dato = @Dato, Kundenavn = @Kundenavn, Ordrebeløb = @Ordrebeløb, Tilstand = @Tilstand, Oprettelsestidspunkt = @Oprettelsestidspunkt, Gennemførelsestidspunkt = @Gennemførelsestidspunkt  WHERE OrdreId = @OrdreId";
+                string query = "UPDATE Salgsordre SET Kundenummer = @Kundenummer, Dato = @Dato, Kundenavn = @Kundenavn, Ordrebeløb = @Ordrebeløb, Tilstand = @Tilstand, Oprettelsestidspunkt = @Oprettelsestidspunkt, Gennemførelsestidspunkt = @Gennemførelsestidspunkt  WHERE Ordrenummer = @Ordrenummer";
 
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@OrdreId", Salgsordre.OrdreId);
-                    cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
-                    cmd.Parameters.AddWithValue("@Kundenummer", Salgsordre.Kundenummer);
-                    cmd.Parameters.AddWithValue("@Dato", Salgsordre.Dato);
-                    cmd.Parameters.AddWithValue("@Kundenavn", Salgsordre.Kundenavn);
-                    cmd.Parameters.AddWithValue("@Ordrebeløb", Salgsordre.Ordrebeløb);
-                    cmd.Parameters.AddWithValue("@Tilstand", Salgsordre.Tilstand);
-                    cmd.Parameters.AddWithValue("@Oprettelsestidspunkt", Salgsordre.Oprettelsestidspunkt);
-                    cmd.Parameters.AddWithValue("@Gennemførelsestidspunkt", Salgsordre.Gennemførelsestidspunkt);
-                    cmd.ExecuteNonQuery();
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
+                        cmd.Parameters.AddWithValue("@Kundenummer", Salgsordre.Kundenummer);
+                        cmd.Parameters.AddWithValue("@Dato", Salgsordre.Dato.ToString());
+                        cmd.Parameters.AddWithValue("@Kundenavn", Salgsordre.Kundenavn);
+                        cmd.Parameters.AddWithValue("@Ordrebeløb", Salgsordre.Ordrebeløb);
+                        cmd.Parameters.AddWithValue("@Tilstand", Salgsordre.Tilstand);
+                        cmd.Parameters.AddWithValue("@Oprettelsestidspunkt", Salgsordre.Oprettelsestidspunkt.ToString());
+                        cmd.Parameters.AddWithValue("@Gennemførelsestidspunkt", Salgsordre.Gennemførelsestidspunkt.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine($"K Kunne ikke opdatere salgsordre til databasen grundet: {ex.Message}. Venligst tjek om kundenummer er et gyldigt værdi. TRYK ESC FOR AT KOMME TILBAGE TIL SALGSORDRE LIST");
                 }
             }
         }
@@ -124,11 +127,11 @@ namespace ERPSys
             {
                 connection.Open();
 
-                string query = "DELETE FROM Salgsordre WHERE OrdreId = @OrdreId";
+                string query = "DELETE FROM Salgsordre WHERE Ordrenummer = @Ordrenummer";
 
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@OrdreId", Salgsordre.OrdreId);
+                    cmd.Parameters.AddWithValue("@Ordrenummer", Salgsordre.Ordrenummer);
 
                     cmd.ExecuteNonQuery();
                 }

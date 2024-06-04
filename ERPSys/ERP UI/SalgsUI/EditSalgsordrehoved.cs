@@ -7,7 +7,7 @@ using TECHCOOL.UI;
 
 namespace ERPSys
 {
-    public class EditSalgsordrehoved(Salgsordrehoved salgsordrehoved) : Screen 
+    public class EditSalgsordrehoved(Salgsordrehoved salgsordrehoved) : Screen
     {
         Database database = Database.Instance;
         public override string Title { get; set; } = "Salgsordre Edit";
@@ -19,9 +19,7 @@ namespace ERPSys
 
             Form<Salgsordrehoved> editor = new();
 
-            editor.TextBox("Ordrenummer", nameof(salgsordrehoved.Ordrenummer));
             editor.TextBox("Kundenummer", nameof(salgsordrehoved.Kundenummer));
-            editor.TextBox("Dato", nameof(salgsordrehoved.Dato));
             editor.TextBox("Kundenavn", nameof(salgsordrehoved.Kundenavn));
             editor.TextBox("Ordrebeløb", nameof(salgsordrehoved.Ordrebeløb));
             editor.SelectBox("Tilstand", nameof(salgsordrehoved.Tilstand));
@@ -30,17 +28,25 @@ namespace ERPSys
             editor.AddOption("Tilstand", "Bekræftet", Tilstand.Bekræftet);
             editor.AddOption("Tilstand", "Pakket", Tilstand.Pakket);
             editor.AddOption("Tilstand", "Færdig", Tilstand.Færdig);
-            editor.TextBox("Oprettelsestidspunkt", nameof(salgsordrehoved.Oprettelsestidspunkt));
-            editor.TextBox("Gennemførelsestidspunkt", nameof(salgsordrehoved.Gennemførelsestidspunkt));
 
             if (editor.Edit(salgsordrehoved))
             {
                 if (salgsordrehoved.Ordrenummer != 0)
                 {
+                    if (salgsordrehoved.Tilstand == Tilstand.Færdig) 
+                    { 
+                        salgsordrehoved.Gennemførelsestidspunkt = DateTime.Now;
+                    }
+                    else
+                    {
+                        salgsordrehoved.Gennemførelsestidspunkt = DateTime.MinValue;
+                    }
                     Database.Instance.OpdaterSalgsordre(salgsordrehoved);
                 }
                 else if (salgsordrehoved.Ordrenummer == 0)
                 {
+                    salgsordrehoved.Dato = DateTime.Now;
+                    salgsordrehoved.Oprettelsestidspunkt = DateTime.Now;
                     Database.Instance.IndsaetSalgsordre(salgsordrehoved);
                 }
 

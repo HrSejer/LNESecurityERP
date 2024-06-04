@@ -16,7 +16,6 @@ namespace ERPSys
 
             ListPage<Salgsordrehoved> selectedSalgsordre = new ListPage<Salgsordrehoved>();
             selectedSalgsordre.Add(salgsordrehoved);
-            selectedSalgsordre.AddColumn("OrdreId", "OrdreId");
             selectedSalgsordre.AddColumn("Ordrenummer", "Ordrenummer");
             selectedSalgsordre.AddColumn("Dato", "Dato");
             selectedSalgsordre.AddColumn("Kundenummer", "Kundenummer");
