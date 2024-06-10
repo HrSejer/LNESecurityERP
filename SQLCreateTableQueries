@@ -1,0 +1,70 @@
+/*Create table for personer*/
+CREATE TABLE Person (
+  PersonId INT IDENTITY(1,1),
+  Navn NVARCHAR(32),
+  Fornavn NVARCHAR(32),
+  Efternavn NVARCHAR(32),
+  Tlfnummer INT,
+  Mail NVARCHAR(32),
+  AddressId INT NOT NULL,
+  CONSTRAINT FK_AddressId FOREIGN KEY (AddressId) REFERENCES Addresse(AddressId),
+  PRIMARY KEY(PersonId)
+)
+/*Create table for kunder*/
+CREATE TABLE Kunde(
+Kundenummer INT,
+Dato DATETIME,
+Navn VARCHAR(32),
+Fornavn VARCHAR(32),
+Efternavn VARCHAR(32),
+Tlfnummer INT,
+Mail VARCHAR(32),
+AddressId INT NOT NULL, 
+PersonId INT NOT NULL,
+Primary key (Kundenummer),
+CONSTRAINT FKAddressId FOREIGN KEY (AddressId) REFERENCES Addresse(AddressId),
+CONSTRAINT FK_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId)
+)
+/*Create table for produkter*/
+CREATE TABLE Produkt (
+ProduktId INT IDENTITY (1,1),
+Varenummer INT, 
+Navn VARCHAR(32),
+Beskrivelse VARCHAR(64),
+Salgspris DECIMAL,
+Indkoebspris DECIMAL,
+Lokation VARCHAR(4),
+Antalpaalager DECIMAL,
+Enhed VARCHAR(5),
+Avance DECIMAL,
+Fortjeneste DECIMAL,
+Primary key (ProduktId)
+)
+/*Create table for Salgsordre*/
+CREATE TABLE Salgsordre(
+Ordrenummer INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+Kundenummer INT FOREIGN KEY REFERENCES Kunde(KundeNummer) NOT NULL,
+Dato VARCHAR(32) NOT NULL,
+Kundenavn VARCHAR(64),
+Ordrebeløb decimal(18, 0)NOT NULL,
+Tilstand varchar(16)NOT NULL,
+Oprettelsestidspunkt VARCHAR(32),
+Gennemførelsestidspunkt VARCHAR(32)
+)
+/*Create table for companies*/
+CREATE TABLE Company(
+CompanyId INT PRIMARY KEY IDENTITY (1,1)NOT NULL,
+CompanyName NVARCHAR(32) NOT NULL,
+CompanyCountry NVARCHAR(30) NOT NULL,
+CompanyCity NVARCHAR(MAX) NOT NULL,
+CompanyStreet NVARCHAR(60) NOT NULL,
+CompanyHousnumber NVARCHAR(10) NOT NULL,
+CompanyPostalCode NVARCHAR(10) NOT NULL,
+CompanyCurrency VARCHAR(10) NOT NULL
+);
+GO
+ /*Create table for addresser*/
+CREATE TABLE Addresse(
+AddressId INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+Addresser NVARCHAR(30) NOT NULL
+);
